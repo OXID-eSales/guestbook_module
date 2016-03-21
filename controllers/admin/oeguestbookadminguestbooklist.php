@@ -40,7 +40,7 @@ class oeGuestBookAdminGuestBookList extends oxAdminList
      *
      * @var string
      */
-    protected $_sListClass = 'oxgbentry';
+    protected $_sListClass = 'oeguestbookentry';
 
     /**
      * Default SQL sorting parameter (default null).
@@ -58,7 +58,7 @@ class oeGuestBookAdminGuestBookList extends oxAdminList
 
     /**
      * Executes parent method parent::render(), gets entries with authors
-     * and returns template file name "admin_guestbook.tpl".
+     * and returns template file name "oeguestbookadminguestbooklist.tpl".
      *
      * @return string
      */
@@ -72,7 +72,7 @@ class oeGuestBookAdminGuestBookList extends oxAdminList
             $oDb = oxDb::getDb();
             foreach ($oList as $oEntry) {
                 // preloading user info ..
-                $sUserIdField = 'oxgbentries__oxuserid';
+                $sUserIdField = 'oeguestbookentry__oxuserid';
                 $sUserLastNameField = 'oxuser__oxlname';
                 if (isset($oEntry->$sUserIdField) && $oEntry->$sUserIdField->value) {
                     $sSql = "select oxlname from oxuser where oxid=" . $oDb->quote($oEntry->$sUserIdField->value);
