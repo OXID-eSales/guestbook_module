@@ -2,7 +2,7 @@
 <OX>
     <OXMENU id="NAVIGATION_ESHOPADMIN">
         <MAINMENU id="mxcustnews">
-            <SUBMENU id="mxguestbook" cl="oegeustbookadminguestbook" list="oeguestbookadminguestbooklist">
+            <SUBMENU id="mxguestbook" cl="oeguestbookadminguestbook" list="oeguestbookadminguestbooklist">
                 <TAB id="tbcladminguestbook_main" cl="oeguestbookadminguestbookmain" />
             </SUBMENU>
         </MAINMENU>
