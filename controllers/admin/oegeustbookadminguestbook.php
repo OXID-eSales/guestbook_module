@@ -26,7 +26,7 @@
  * and "adminguestbook_main.tpl") to frame.
  * Admin Menu: User information -> Guestbook.
  */
-class Admin_Guestbook extends oxAdminView
+class oeGuestBookAdminGuestBook extends oxAdminView
 {
 
     /**
@@ -34,5 +34,5 @@ class Admin_Guestbook extends oxAdminView
      *
      * @var string
      */
-    protected $_sThisTemplate = 'admin_guestbook.tpl';
+    protected $_sThisTemplate = 'oeguestbookadminguestbook.tpl';
 }

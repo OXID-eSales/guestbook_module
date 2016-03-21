@@ -25,7 +25,7 @@
  * Returns template, that arranges guestbook record information.
  * Admin Menu: User information -> Guestbook -> Main.
  */
-class Adminguestbook_Main extends oxAdminDetails
+class oeGuestBookAdminGuestBookMain extends oxAdminDetails
 {
 
     /**
@@ -57,7 +57,7 @@ class Adminguestbook_Main extends oxAdminDetails
         //show "active" checkbox if moderating is active
         $this->_aViewData['blShowActBox'] = $myConfig->getConfigParam('blGBModerate');
 
-        return 'adminguestbook_main.tpl';
+        return 'oeguestbookadminguestbookmain.tpl';
     }
 
     /**

@@ -39,12 +39,18 @@ $aModule = array(
         'oeguestbookmodule' => 'oe/guestbook/core/oeguestbookmodule.php',
         'oeguestbookguestbook' => 'oe/guestbook/controllers/oeguestbookguestbook.php',
         'oeguestbookguestbookentry' => 'oe/guestbook/controllers/oeguestbookguestbookentry.php',
+        'oegeustbookadminguestbook' => 'oe/guestbook/controllers/admin/oegeustbookadminguestbook.php',
+        'oeguestbookadminguestbooklist' => 'oe/guestbook/controllers/admin/oeguestbookadminguestbooklist.php',
+        'oeguestbookadminguestbookmain' => 'oe/guestbook/controllers/admin/oeguestbookadminguestbookmain.php',
         'oeguestbookentry' => 'oe/guestbook/models/oeguestbookentry.php',
     ),
     'templates'   => array(
         'page/guestbook/oeguestbookguestbook_login.tpl' => 'oe/guestbook/views/tpl/page/guestbook/oeguestbookguestbook.tpl',
         'page/guestbook/oeguestbookguestbook.tpl' => 'oe/guestbook/views/tpl/page/guestbook/oeguestbookguestbook.tpl',
         'form/oeguestbookguestbook.tpl' => 'oe/guestbook/views/tpl/form/oeguestbookguestbook.tpl',
+        'oeguestbookadminguestbook.tpl' => 'oe/guestbook/views/admin/tpl/oeguestbookadminguestbook.tpl',
+        'oeguestbookadminguestbooklist' => 'oe/guestbook/views/admin/tpl/oeguestbookadminguestbooklist.tpl',
+        'oeguestbookadminguestbookmain' => 'oe/guestbook/views/admin/tpl/oeguestbookadminguestbookmain.tpl',
     ),
     'events'      => array(
         'onActivate'   => 'oeGuestbookModule::onActivate',
