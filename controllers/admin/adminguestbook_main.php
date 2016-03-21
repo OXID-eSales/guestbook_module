@@ -43,12 +43,12 @@ class Adminguestbook_Main extends oxAdminDetails
         $soxId = $this->_aViewData["oxid"] = $this->getEditObjectId();
         if (isset($soxId) && $soxId != '-1') {
             // load object
-            $oLinks = oxNew('oxgbentry');
+            $oLinks = oxNew('oeGuestBookEntry');
             $oLinks->load($soxId);
 
             // #580A - setting GB entry as viewed in admin
-            if (!isset($oLinks->oxgbentries__oxviewed) || !$oLinks->oxgbentries__oxviewed->value) {
-                $oLinks->oxgbentries__oxviewed = new oxField(1);
+            if (!isset($oLinks->oeguestbookentry__oxviewed) || !$oLinks->oeguestbookentry__oxviewed->value) {
+                $oLinks->oeguestbookentry__oxviewed = new oxField(1);
                 $oLinks->save();
             }
             $this->_aViewData["edit"] = $oLinks;
@@ -71,18 +71,18 @@ class Adminguestbook_Main extends oxAdminDetails
         $aParams = oxRegistry::getConfig()->getRequestParameter("editval");
 
         // checkbox handling
-        if (!isset($aParams['oxgbentries__oxactive'])) {
-            $aParams['oxgbentries__oxactive'] = 0;
+        if (!isset($aParams['oeguestbookentry__oxactive'])) {
+            $aParams['oeguestbookentry__oxactive'] = 0;
         }
 
         $oLinks = $this->getGuestbookEntryObject();
         if ($soxId != "-1") {
             $oLinks->load($soxId);
         } else {
-            $aParams['oxgbentries__oxid'] = null;
+            $aParams['oeguestbookentry__oxid'] = null;
 
             // author
-            $aParams['oxgbentries__oxuserid'] = oxRegistry::getSession()->getVariable('auth');
+            $aParams['oeguestbookentry__oxuserid'] = oxRegistry::getSession()->getVariable('auth');
         }
 
         $aParams = $this->appendAdditionalParametersForSave($aParams);
@@ -93,13 +93,13 @@ class Adminguestbook_Main extends oxAdminDetails
     }
 
     /**
-     * Getter of oxgbentry object
+     * Getter of oeGuestBookEntry object
      *
-     * @return \oxGbEntry
+     * @return oeGuestBookEntry
      */
     public function getGuestbookEntryObject()
     {
-        return oxNew('oxGbEntry');
+        return oxNew('oeGuestBookEntry');
     }
 
     /**

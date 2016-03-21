@@ -1,4 +1,4 @@
-CREATE TABLE `oxgbentries` (
+CREATE TABLE `oeguestbookentry` (
   `OXID` char(32) COLLATE latin1_general_ci NOT NULL COMMENT 'Entry id',
   `OXSHOPID` int(11) NOT NULL DEFAULT '1' COMMENT 'Shop id (oxshops)',
   `OXUSERID` char(32) COLLATE latin1_general_ci NOT NULL DEFAULT '' COMMENT 'User id (oxuser)',

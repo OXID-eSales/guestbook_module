@@ -14,13 +14,13 @@
 
 
 <table cellspacing="0" cellpadding="0" border="0" style="width:100%;height:100%;">
-  <form name="myedit" id="myedit" action="[{$oViewConf->getSelfLink()}]" method="post" onSubmit="copyLongDesc( 'oxgbentries__oxcontent' );">
+  <form name="myedit" id="myedit" action="[{$oViewConf->getSelfLink()}]" method="post" onSubmit="copyLongDesc( 'oeguestbookentry__oxcontent' );">
   [{$oViewConf->getHiddenSid()}]
   <input type="hidden" name="cl" value="adminguestbook_main">
   <input type="hidden" name="fnc" value="">
   <input type="hidden" name="oxid" value="[{$oxid}]">
   <input type="hidden" name="voxid" value="[{$oxid}]">
-  <input type="hidden" name="editval[oxgbentries__oxid]" value="[{$oxid}]">
+  <input type="hidden" name="editval[oeguestbookentry__oxid]" value="[{$oxid}]">
   <tr>
     <td valign="top" class="edittext" width="250">
       <table cellspacing="0" cellpadding="0" border="0">
@@ -30,8 +30,8 @@
               [{oxmultilang ident="GENERAL_DATE"}]&nbsp;
               </td>
               <td class="edittext">
-              <input type="text" class="editinput" size="27" value="[{$edit->oxgbentries__oxcreate|oxformdate}]" [{include file="help.tpl" helpid=article_vonbis}] readonly [{$readonly}]>
-              <input type="hidden" name="editval[oxgbentries__oxcreate]" value="[{$edit->oxgbentries__oxcreate->value}]">
+              <input type="text" class="editinput" size="27" value="[{$edit->oeguestbookentry__oxcreate|oxformdate}]" [{include file="help.tpl" helpid=article_vonbis}] readonly [{$readonly}]>
+              <input type="hidden" name="editval[oeguestbookentry__oxcreate]" value="[{$edit->oeguestbookentry__oxcreate->value}]">
               [{oxinputhelp ident="HELP_GENERAL_DATE"}]
               </td>
             </tr>
@@ -41,7 +41,7 @@
               [{oxmultilang ident="GENERAL_ACTIVE"}]&nbsp;
               </td>
               <td class="edittext">
-              <input class="edittext" type="checkbox" name="editval[oxgbentries__oxactive]" value='1' [{if $edit->oxgbentries__oxactive->value == 1}]checked[{/if}] [{$readonly}]>
+              <input class="edittext" type="checkbox" name="editval[oeguestbookentry__oxactive]" value='1' [{if $edit->oeguestbookentry__oxactive->value == 1}]checked[{/if}] [{$readonly}]>
               [{oxinputhelp ident="HELP_GENERAL_ACTIVE"}]
               </td>
             </tr>
@@ -60,7 +60,7 @@
     <!-- Anfang rechte Seite -->
     <td valign="top" class="edittext vr" align="left">
         [{block name="admin_adminguestbook_main_content"}]
-            <textarea class="editinput" cols="100" rows="17" wrap="VIRTUAL" name="editval[oxgbentries__oxcontent]" [{$readonly}]>[{$edit->oxgbentries__oxcontent->value}]</textarea>
+            <textarea class="editinput" cols="100" rows="17" wrap="VIRTUAL" name="editval[oeguestbookentry__oxcontent]" [{$readonly}]>[{$edit->oeguestbookentry__oxcontent->value}]</textarea>
         [{/block}]
     </td>
   </tr>

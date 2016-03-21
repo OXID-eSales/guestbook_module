@@ -72,7 +72,7 @@ class oeGuestBookGuestBookEntry extends oxUBase
         }
 
         // flood protection
-        $oEntrie = oxNew('oxgbentry');
+        $oEntrie = oxNew('oeGuestBookEntry');
         if ($oEntrie->floodProtection($sShopId, $sUserId)) {
             $sErrorMessage = 'ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_MAXIMUM_NUMBER_EXCEEDED';
             oxRegistry::get("oxUtilsView")->addErrorToDisplay($sErrorMessage);
@@ -83,10 +83,10 @@ class oeGuestBookGuestBookEntry extends oxUBase
         // double click protection
         if ($this->canAcceptFormData()) {
             // here the guest book entry is saved
-            $oEntry = oxNew('oxgbentry');
-            $oEntry->oxgbentries__oxshopid = new oxField($sShopId);
-            $oEntry->oxgbentries__oxuserid = new oxField($sUserId);
-            $oEntry->oxgbentries__oxcontent = new oxField($sReviewText);
+            $oEntry = oxNew('oeGuestBookEntry');
+            $oEntry->oeguestbookentry__oxshopid = new oxField($sShopId);
+            $oEntry->oeguestbookentry__oxuserid = new oxField($sUserId);
+            $oEntry->oeguestbookentry__oxcontent = new oxField($sReviewText);
             $oEntry->save();
         }
 

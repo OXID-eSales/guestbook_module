@@ -25,7 +25,7 @@
  * Loads available guestbook entries, performs some SQL queries.
  *
  */
-class oeGuestBookGbEntry extends oxBase
+class oeGuestBookEntry extends oxBase
 {
 
     /**
@@ -41,7 +41,7 @@ class oeGuestBookGbEntry extends oxBase
      *
      * @var string classname
      */
-    protected $_sClassName = 'oxgbentry';
+    protected $_sClassName = 'oeguestbookentry';
 
     /**
      * Class constructor, executes parent method parent::oxI18n().
@@ -50,7 +50,7 @@ class oeGuestBookGbEntry extends oxBase
     public function __construct()
     {
         parent::__construct();
-        $this->init('oxgbentries');
+        $this->init('oeguestbookentry');
     }
 
     /**
@@ -64,9 +64,9 @@ class oeGuestBookGbEntry extends oxBase
     {
         $blRet = parent::assign($dbRecord);
 
-        if (isset($this->oxgbentries__oxuserid) && $this->oxgbentries__oxuserid->value) {
+        if (isset($this->oeguestbookentry__oxuserid) && $this->oeguestbookentry__oxuserid->value) {
             $oDb = oxDb::getDb();
-            $this->oxuser__oxfname = new oxField($oDb->getOne("select oxfname from oxuser where oxid=" . $oDb->quote($this->oxgbentries__oxuserid->value)));
+            $this->oxuser__oxfname = new oxField($oDb->getOne("select oxfname from oxuser where oxid=" . $oDb->quote($this->oeguestbookentry__oxuserid->value)));
         }
 
         return $blRet;
@@ -80,7 +80,7 @@ class oeGuestBookGbEntry extends oxBase
     protected function _insert()
     {
         // set oxcreate
-        $this->oxgbentries__oxcreate = new oxField(date('Y-m-d H:i:s', oxRegistry::get("oxUtilsDate")->getTime()));
+        $this->oeguestbookentry__oxcreate = new oxField(date('Y-m-d H:i:s', oxRegistry::get("oxUtilsDate")->getTime()));
 
         return parent::_insert();
     }
@@ -99,16 +99,16 @@ class oeGuestBookGbEntry extends oxBase
         $myConfig = $this->getConfig();
 
         // loading entries
-        $sSelect = 'select oxgbentries.*, oxuser.oxfname,
-                    `oxuser`.`oxusername` AS `author`, `oxgbentries`.`oxcreate` AS `date`
-            from oxgbentries left join oxuser on oxgbentries.oxuserid = oxuser.oxid ';
-        $sSelect .= 'where oxuser.oxid is not null and oxgbentries.oxshopid = "' . $myConfig->getShopId() . '" ';
+        $sSelect = 'select oeguestbookentry.*, oxuser.oxfname,
+                    `oxuser`.`oxusername` AS `author`, `oeguestbookentry`.`oxcreate` AS `date`
+            from oeguestbookentry left join oxuser on oeguestbookentry.oxuserid = oxuser.oxid ';
+        $sSelect .= 'where oxuser.oxid is not null and oeguestbookentry.oxshopid = "' . $myConfig->getShopId() . '" ';
 
         // setting GB entry view restirction rules
         if ($myConfig->getConfigParam('blGBModerate')) {
             $oUser = $this->getUser();
-            $sSelect .= " and ( oxgbentries.oxactive = '1' ";
-            $sSelect .= $oUser ? " or oxgbentries.oxuserid = " . oxDb::getDb()->quote($oUser->getId()) : '';
+            $sSelect .= " and ( oeguestbookentry.oxactive = '1' ";
+            $sSelect .= $oUser ? " or oeguestbookentry.oxuserid = " . oxDb::getDb()->quote($oUser->getId()) : '';
             $sSelect .= " ) ";
         }
 
@@ -119,7 +119,7 @@ class oeGuestBookGbEntry extends oxBase
 
 
         $oEntries = oxNew('oxlist');
-        $oEntries->init('oxgbentry');
+        $oEntries->init('oeguestbookentry');
 
         $oEntries->setSqlLimit($iStart, $iNrofCatArticles);
         $oEntries->selectString($sSelect);
@@ -138,14 +138,14 @@ class oeGuestBookGbEntry extends oxBase
         $oDb = oxDb::getDb();
 
         // loading entries
-        $sSelect = 'select count(*) from oxgbentries left join oxuser on oxgbentries.oxuserid = oxuser.oxid ';
-        $sSelect .= 'where oxuser.oxid is not null and oxgbentries.oxshopid = "' . $myConfig->getShopId() . '" ';
+        $sSelect = 'select count(*) from oeguestbookentry left join oxuser on oeguestbookentry.oxuserid = oxuser.oxid ';
+        $sSelect .= 'where oxuser.oxid is not null and oeguestbookentry.oxshopid = "' . $myConfig->getShopId() . '" ';
 
         // setting GB entry view restirction rules
         if ($myConfig->getConfigParam('blGBModerate')) {
             $oUser = $this->getUser();
-            $sSelect .= " and ( oxgbentries.oxactive = '1' ";
-            $sSelect .= $oUser ? " or oxgbentries.oxuserid = " . $oDb->quote($oUser->getId()) : '';
+            $sSelect .= " and ( oeguestbookentry.oxactive = '1' ";
+            $sSelect .= $oUser ? " or oeguestbookentry.oxuserid = " . $oDb->quote($oUser->getId()) : '';
             $sSelect .= " ) ";
         }
 
@@ -171,9 +171,9 @@ class oeGuestBookGbEntry extends oxBase
         if ($sUserId && $sShopid) {
             $oDb = oxDb::getDb();
             $sToday = date('Y-m-d');
-            $sSelect = "select count(*) from oxgbentries ";
-            $sSelect .= "where oxgbentries.oxuserid = " . $oDb->quote($sUserId) . " and oxgbentries.oxshopid = " . $oDb->quote($sShopid) . " ";
-            $sSelect .= "and oxgbentries.oxcreate >= '$sToday 00:00:00' and oxgbentries.oxcreate <= '$sToday 23:59:59' ";
+            $sSelect = "select count(*) from oeguestbookentry ";
+            $sSelect .= "where oeguestbookentry.oxuserid = " . $oDb->quote($sUserId) . " and oeguestbookentry.oxshopid = " . $oDb->quote($sShopid) . " ";
+            $sSelect .= "and oeguestbookentry.oxcreate >= '$sToday 00:00:00' and oeguestbookentry.oxcreate <= '$sToday 23:59:59' ";
             $iCnt = $oDb->getOne($sSelect);
 
             $myConfig = $this->getConfig();
@@ -181,7 +181,6 @@ class oeGuestBookGbEntry extends oxBase
                 $result = false;
             }
         }
-        return false;
         return $result;
     }
 }

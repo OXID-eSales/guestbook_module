@@ -1,1 +1,1 @@
-DROP TABLE `oxgbentries`;
+DROP TABLE `oeguestbookentry`;

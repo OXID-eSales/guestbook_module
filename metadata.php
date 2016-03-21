@@ -39,7 +39,7 @@ $aModule = array(
         'oeguestbookmodule' => 'oe/guestbook/core/oeguestbookmodule.php',
         'oeguestbookguestbook' => 'oe/guestbook/controllers/oeguestbookguestbook.php',
         'oeguestbookguestbookentry' => 'oe/guestbook/controllers/oeguestbookguestbookentry.php',
-        'oeguestbookgbentry' => 'oe/guestbook/models/oeguestbookgbentry.php',
+        'oeguestbookentry' => 'oe/guestbook/models/oeguestbookentry.php',
     ),
     'templates'   => array(
         'page/guestbook/oeguestbookguestbook_login.tpl' => 'oe/guestbook/views/tpl/page/guestbook/oeguestbookguestbook.tpl',

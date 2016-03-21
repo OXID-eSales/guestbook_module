@@ -183,7 +183,7 @@ class oeGuestBookGuestBook extends oxUBase
             $numberOfCategoryArticles = $numberOfCategoryArticles ? $numberOfCategoryArticles : 10;
 
             // loading only if there is some data
-            $entries = oxNew('oxGbEntry');
+            $entries = oxNew('oeGuestBookEntry');
             if ($count = $entries->getEntryCount()) {
                 $this->_iCntPages = ceil($count / $numberOfCategoryArticles);
                 $this->_aEntries = $entries->getAllEntries(
@@ -210,7 +210,7 @@ class oeGuestBookGuestBook extends oxUBase
             $userId = oxRegistry::getSession()->getVariable('usr');
             $userId = $userId ? $userId : 0;
 
-            $entries = oxNew('oxGbEntry');
+            $entries = oxNew('oeGuestBookEntry');
             $this->_blFloodProtection = $entries->floodProtection($this->getConfig()->getShopId(), $userId);
         }
 
@@ -303,35 +303,35 @@ class oeGuestBookGuestBook extends oxUBase
         if (!$shopId) {
             $utilsView->addErrorToDisplay('ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_UNDEFINED_SHOP');
 
-            return 'guestbookentry';
+            return 'oeguestbookguestbookentry';
         }
 
         // empty entries validation
         if ('' == $reviewText) {
             $utilsView->addErrorToDisplay('ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_REVIEW_CONTAINS_NO_TEXT');
 
-            return 'guestbook';
+            return 'oeguestbookguestbook';
         }
 
         // flood protection
-        $entry = oxNew('oxGbEntry');
+        $entry = oxNew('oeGuestBookEntry');
         if ($entry->floodProtection($shopId, $userId)) {
             $utilsView->addErrorToDisplay('ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_MAXIMUM_NUMBER_EXCEEDED');
 
-            return 'guestbookentry';
+            return 'oeguestbookguestbookentry';
         }
 
         // double click protection
         if ($this->canAcceptFormData()) {
             // here the guest book entry is saved
-            $newEntry = oxNew('oxGbEntry');
-            $newEntry->oxgbentries__oxshopid = new oxField($shopId);
-            $newEntry->oxgbentries__oxuserid = new oxField($userId);
-            $newEntry->oxgbentries__oxcontent = new oxField($reviewText);
+            $newEntry = oxNew('oeGuestBookEntry');
+            $newEntry->oeguestbookentry__oxshopid = new oxField($shopId);
+            $newEntry->oeguestbookentry__oxuserid = new oxField($userId);
+            $newEntry->oeguestbookentry__oxcontent = new oxField($reviewText);
             $newEntry->save();
         }
 
-        return 'guestbook';
+        return 'oeguestbookguestbook';
     }
 
     /**
