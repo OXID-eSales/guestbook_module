@@ -42,7 +42,7 @@ $aModule = array(
         'en' => 'Customers can write text messages on the page guestbook of the eShop. There is a section in the eShop 
         admin where those text messages can be managed.',
     ),
-    'thumbnail'   => 'out/pictures/picture.png',
+    'thumbnail'   => '',
     'version'     => '1.0.0',
     'author'      => 'OXID eSales AG',
     'url'         => 'http://www.oxid-esales.com',
