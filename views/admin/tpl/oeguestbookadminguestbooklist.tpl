@@ -22,7 +22,7 @@ window.onload = function ()
 
 
 <form name="search" id="search" action="[{$oViewConf->getSelfLink()}]" method="post">
-[{include file="_formparams.tpl" cl="adminguestbook_list" lstrt=$lstrt actedit=$actedit oxid=$oxid fnc="" language=$actlang editlanguage=$actlang}]
+[{include file="_formparams.tpl" cl="oeguestbookadminguestbooklist" lstrt=$lstrt actedit=$actedit oxid=$oxid fnc="" language=$actlang editlanguage=$actlang}]
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
     <colgroup>
         [{block name="admin_adminguestbook_list_colgroup"}]
