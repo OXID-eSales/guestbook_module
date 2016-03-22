@@ -22,8 +22,8 @@
 
 /**
  * Guestbook manager.
- * Sets template, that arranges two other templates ("adminguestbook_list.tpl"
- * and "adminguestbook_main.tpl") to frame.
+ * Sets template, that arranges two other templates ("oeguestbookadminguestbooklist.tpl"
+ * and "oeguestbookadminguestbookmain.tpl") to frame.
  * Admin Menu: User information -> Guestbook.
  */
 class oeGuestBookAdminGuestBook extends oxAdminView
