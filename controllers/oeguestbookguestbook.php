@@ -257,7 +257,7 @@ class oeGuestBookGuestBook extends oxUBase
      */
     public function getSortIdent()
     {
-        return 'oxgb';
+        return 'oeguestbook';
     }
 
     /**
