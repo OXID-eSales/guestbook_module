@@ -23,7 +23,7 @@
  */
 
 /**
- * Tests for AdminGuestbook_List class
+ * Tests for oeGuestBookAdminGuestBookList class
  */
 class oeGuestBookAdminGuestBookListTest extends OxidTestCase
 {

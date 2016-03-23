@@ -23,13 +23,13 @@
  */
 
 /**
- * Tests for Admin_Guestbook class
+ * Tests for oeGuestBookAdminGuestBookList class
  */
 class oeGuestBookAdminGuestBookTest extends OxidTestCase
 {
 
     /**
-     * Admin_Guestbook::Render() test case
+     * oeGuestBookAdminGuestBookList::Render() test case
      *
      * @return null
      */

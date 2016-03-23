@@ -22,9 +22,6 @@
  * @copyright (C) OXID eSales AG 2003-2016
  */
 
-/**
- * Testing Guestbook class
- */
 class oeGuestBookGuestBookTest extends OxidTestCase
 {
 
@@ -155,7 +152,7 @@ class oeGuestBookGuestBookTest extends OxidTestCase
     }
 
     /**
-     * GuestBook::render() test case - login screen.
+     * oeGuestBookGuestBook::render() test case - login screen.
      *
      * @return null
      */
