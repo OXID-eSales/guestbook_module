@@ -64,10 +64,6 @@ $aModule = array(
         'oeguestbookadminguestbooklist.tpl' => 'oe/guestbook/views/admin/tpl/oeguestbookadminguestbooklist.tpl',
         'oeguestbookadminguestbookmain.tpl' => 'oe/guestbook/views/admin/tpl/oeguestbookadminguestbookmain.tpl',
     ),
-    'events'      => array(
-        'onActivate'   => 'oeGuestbookModule::onActivate',
-        'onDeactivate' => 'oeGuestbookModule::onDeactivate',
-    ),
     'settings'    => array(
         array(
             'group' => 'main',
@@ -81,5 +77,9 @@ $aModule = array(
             'type'  => 'bool',
             'value' => 'false'
         )
+    ),
+    'events'      => array(
+        'onActivate'   => 'oeGuestbookModule::onActivate',
+        'onDeactivate' => 'oeGuestbookModule::onDeactivate',
     ),
 );
