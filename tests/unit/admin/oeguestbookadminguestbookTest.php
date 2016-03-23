@@ -36,8 +36,8 @@ class oeGuestBookAdminGuestBookTest extends OxidTestCase
     public function testRender()
     {
         // testing..
-        $oView = oxNew('Admin_Guestbook');
-        $this->assertEquals('admin_guestbook.tpl', $oView->render());
+        $oView = oxNew('oeGuestBookAdminGuestBook');
+        $this->assertEquals('oeguestbookadminguestbook.tpl', $oView->render());
     }
 
 }

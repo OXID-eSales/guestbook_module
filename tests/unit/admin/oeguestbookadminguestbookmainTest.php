@@ -36,23 +36,23 @@ class oeGuestBookAdminGuestBookMainTest extends OxidTestCase
     public function testRender()
     {
         $this->setRequestParameter("oxid", "xxx");
-        oxTestModules::addFunction('oxgbentry', 'save', '{ return true; }');
+        oxTestModules::addFunction('oeguestbookEntry', 'save', '{ return true; }');
 
         // testing..
-        $oView = oxNew('Adminguestbook_Main');
+        $oView = oxNew('oeGuestBookAdminGuestBookMain');
         $sTplName = $oView->render();
 
         // testing view data
         $aViewData = $oView->getViewData();
         $this->assertNotNull($aViewData["edit"]);
-        $this->assertTrue($aViewData["edit"] instanceof oxgbentry);
+        $this->assertTrue($aViewData["edit"] instanceof oeGuestBookEntry);
         $this->assertEquals($this->getConfig()->getConfigParam("blGBModerate"), $aViewData["blShowActBox"]);
 
-        $this->assertEquals('adminguestbook_main.tpl', $sTplName);
+        $this->assertEquals('oeguestbookadminguestbookmain.tpl', $sTplName);
     }
 
     /**
-     * Adminguestbook_Main::Render() test case
+     * oeGuestBookAdminGuestBookMain::Render() test case
      *
      * @return null
      */
@@ -62,7 +62,7 @@ class oeGuestBookAdminGuestBookMainTest extends OxidTestCase
         $this->setRequestParameter("saved_oxid", "-1");
 
         // testing..
-        $oView = oxNew('Adminguestbook_Main');
+        $oView = oxNew('oeGuestBookAdminGuestBookMain');
         $sTplName = $oView->render();
 
         // testing view data
@@ -72,23 +72,23 @@ class oeGuestBookAdminGuestBookMainTest extends OxidTestCase
         $this->assertEquals("-1", $aViewData["oxid"]);
         $this->assertEquals($this->getConfig()->getConfigParam("blGBModerate"), $aViewData["blShowActBox"]);
 
-        $this->assertEquals('adminguestbook_main.tpl', $sTplName);
+        $this->assertEquals('oeguestbookadminguestbookmain.tpl', $sTplName);
     }
 
     /**
-     * Adminguestbook_Main::Save() test case
+     * oeGuestBookAdminGuestBookMain::Save() test case
      *
      * @return null
      */
     public function testSave()
     {
-        oxTestModules::addFunction('oxgbentry', 'load', '{ return true; }');
-        oxTestModules::addFunction('oxgbentry', 'save', '{ return true; }');
+        oxTestModules::addFunction('oeguestbookentry', 'load', '{ return true; }');
+        oxTestModules::addFunction('oeguestbookentry', 'save', '{ return true; }');
 
         $this->setRequestParameter("oxid", "xxx");
         $this->setRequestParameter("editval", array("xxx"));
 
-        $oView = oxNew('Adminguestbook_Main');
+        $oView = oxNew('oeGuestBookAdminGuestBookMain');
         $oView->save();
 
         $aViewData = $oView->getViewData();
@@ -97,18 +97,18 @@ class oeGuestBookAdminGuestBookMainTest extends OxidTestCase
     }
 
     /**
-     * Adminguestbook_Main::Save() test case
+     * oeGuestBookAdminGuestBookMain::Save() test case
      *
      * @return null
      */
     public function testSaveDefaultOxid()
     {
-        oxTestModules::addFunction('oxgbentry', 'save', '{ $this->oxgbentries__oxid = new oxField( "testId" ); return true; }');
+        oxTestModules::addFunction('oeguestbookentry', 'save', '{ $this->oeguestbookentry__oxid = new oxField( "testId" ); return true; }');
 
         $this->setRequestParameter("oxid", "-1");
         $this->setRequestParameter("editval", array("xxx"));
 
-        $oView = oxNew('Adminguestbook_Main');
+        $oView = oxNew('oeGuestBookAdminGuestBookMain');
         $oView->save();
 
         $aViewData = $oView->getViewData();

@@ -35,17 +35,17 @@ class oeGuestBookAdminGuestBookListTest extends OxidTestCase
      */
     public function testRender()
     {
-        $oEntry = oxNew('GuestbookEntry');
-        $oEntry->oxgbentries__oxuserid = new oxField("oxdefaultadmin");
+        $oEntry = oxNew('oeGuestBookEntry');
+        $oEntry->oeguestbookentry__oxuserid = new oxField("oxdefaultadmin");
 
         $oList = oxNew('oxList');
         $oList->offsetSet("testEntryId", $oEntry);
 
         // testing..
-        $oView = $this->getMock("AdminGuestbook_List", array("getItemList"));
+        $oView = $this->getMock("oeGuestBookAdminGuestBookList", array("getItemList"));
         $oView->expects($this->any())->method('getItemList')->will($this->returnValue($oList));
         $sTplName = $oView->render();
-        $this->assertEquals('adminguestbook_list.tpl', $sTplName);
+        $this->assertEquals('oeguestbookadminguestbooklist.tpl', $sTplName);
 
         // testing view data
         $aViewData = $oView->getViewData();
