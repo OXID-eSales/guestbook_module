@@ -57,7 +57,7 @@ class oeGuestBookAdminGuestBookMain extends oxAdminDetails
         }
 
         //show "active" checkbox if moderating is active
-        $this->_aViewData['blShowActBox'] = $myConfig->getConfigParam('blGBModerate');
+        $this->_aViewData['blShowActBox'] = $myConfig->getConfigParam('oeGuestBookModerate');
 
         return 'oeguestbookadminguestbookmain.tpl';
     }

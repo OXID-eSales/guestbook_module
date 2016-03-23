@@ -133,7 +133,7 @@ class oeGuestBookEntryTest extends OxidTestCase
 
     public function testGetAllEntriesModerationOn()
     {
-        $this->getConfig()->setConfigParam('blGBModerate', 1);
+        $this->getConfig()->setConfigParam('oeGuestBookModerate', 1);
         $myDB = oxDb::getDb();
         $sSql = 'insert into oeguestbookentry (oxid,oxshopid,oxuserid,oxcontent)values("_test","' . $this->getConfig()->getBaseShopId() . '","oxdefaultadmin","AA test content")';
         $myDB->execute($sSql);
@@ -155,7 +155,7 @@ class oeGuestBookEntryTest extends OxidTestCase
 
     public function testGetEntryCountModerationOn()
     {
-        $this->getConfig()->setConfigParam('blGBModerate', 1);
+        $this->getConfig()->setConfigParam('oeGuestBookModerate', 1);
         $oObj = oxNew('oeGuestBookEntry');
         $iCnt = $oObj->getEntryCount();
         $this->assertEquals(0, $iCnt);

@@ -46,7 +46,7 @@ class oeGuestBookAdminGuestBookMainTest extends OxidTestCase
         $aViewData = $oView->getViewData();
         $this->assertNotNull($aViewData["edit"]);
         $this->assertTrue($aViewData["edit"] instanceof oeGuestBookEntry);
-        $this->assertEquals($this->getConfig()->getConfigParam("blGBModerate"), $aViewData["blShowActBox"]);
+        $this->assertEquals($this->getConfig()->getConfigParam("oeGuestBookModerate"), $aViewData["blShowActBox"]);
 
         $this->assertEquals('oeguestbookadminguestbookmain.tpl', $sTplName);
     }
@@ -70,7 +70,7 @@ class oeGuestBookAdminGuestBookMainTest extends OxidTestCase
         $this->assertFalse(isset($aViewData["edit"]));
         $this->assertTrue(isset($aViewData["oxid"]));
         $this->assertEquals("-1", $aViewData["oxid"]);
-        $this->assertEquals($this->getConfig()->getConfigParam("blGBModerate"), $aViewData["blShowActBox"]);
+        $this->assertEquals($this->getConfig()->getConfigParam("oeGuestBookModerate"), $aViewData["blShowActBox"]);
 
         $this->assertEquals('oeguestbookadminguestbookmain.tpl', $sTplName);
     }

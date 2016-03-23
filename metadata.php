@@ -74,6 +74,12 @@ $aModule = array(
             'name'  => 'oeGuestBookMaxGuestBookEntriesPerDay',
             'type'  => 'str',
             'value' => '3'
+        ),
+        array(
+            'group' => 'main',
+            'name'  => 'oeGuestBookModerate',
+            'type'  => 'bool',
+            'value' => 'false'
         )
     ),
 );

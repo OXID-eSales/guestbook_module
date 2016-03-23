@@ -107,7 +107,7 @@ class oeGuestBookEntry extends oxBase
         $sSelect .= 'where oxuser.oxid is not null and oeguestbookentry.oxshopid = "' . $myConfig->getShopId() . '" ';
 
         // setting GB entry view restirction rules
-        if ($myConfig->getConfigParam('blGBModerate')) {
+        if ($myConfig->getConfigParam('oeGuestBookModerate')) {
             $oUser = $this->getUser();
             $sSelect .= " and ( oeguestbookentry.oxactive = '1' ";
             $sSelect .= $oUser ? " or oeguestbookentry.oxuserid = " . oxDb::getDb()->quote($oUser->getId()) : '';
@@ -144,7 +144,7 @@ class oeGuestBookEntry extends oxBase
         $sSelect .= 'where oxuser.oxid is not null and oeguestbookentry.oxshopid = "' . $myConfig->getShopId() . '" ';
 
         // setting GB entry view restirction rules
-        if ($myConfig->getConfigParam('blGBModerate')) {
+        if ($myConfig->getConfigParam('oeGuestBookModerate')) {
             $oUser = $this->getUser();
             $sSelect .= " and ( oeguestbookentry.oxactive = '1' ";
             $sSelect .= $oUser ? " or oeguestbookentry.oxuserid = " . $oDb->quote($oUser->getId()) : '';
