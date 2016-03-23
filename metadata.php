@@ -68,4 +68,12 @@ $aModule = array(
         'onActivate'   => 'oeGuestbookModule::onActivate',
         'onDeactivate' => 'oeGuestbookModule::onDeactivate',
     ),
+    'settings'    => array(
+        array(
+            'group' => 'main',
+            'name'  => 'oeGuestBookMaxGuestBookEntriesPerDay',
+            'type'  => 'str',
+            'value' => '3'
+        )
+    ),
 );

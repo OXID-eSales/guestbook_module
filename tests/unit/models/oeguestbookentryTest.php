@@ -176,7 +176,7 @@ class oeGuestBookEntryTest extends OxidTestCase
     {
         $oObj = oxNew('oeGuestBookEntry');
         $myConfig = $this->getConfig();
-        $myConfig->setConfigParam('iMaxGBEntriesPerDay', 1);
+        $myConfig->setConfigParam('oeGuestBookMaxGuestBookEntriesPerDay', 1);
         $this->assertTrue($oObj->floodProtection($myConfig->getShopId(), 'oxdefaultadmin'));
     }
 

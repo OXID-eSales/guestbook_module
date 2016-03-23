@@ -82,7 +82,7 @@ class oeGuestBookGuestBookTest extends OxidTestCase
     public function testFloodProtectionIfAllow()
     {
         $oObj = oxNew('oeGuestBookGuestBook');
-        $this->getConfig()->setConfigParam('iMaxGBEntriesPerDay', 10);
+        $this->getConfig()->setConfigParam('oeGuestBookMaxGuestBookEntriesPerDay', 10);
         $this->getSession()->setVariable('usr', 'oxdefaultadmin');
         $this->assertFalse($oObj->floodProtection());
     }
@@ -95,7 +95,7 @@ class oeGuestBookGuestBookTest extends OxidTestCase
     public function testFloodProtectionMaxReached()
     {
         $oObj = oxNew('oeGuestBookGuestBook');
-        $this->getConfig()->setConfigParam('iMaxGBEntriesPerDay', 1);
+        $this->getConfig()->setConfigParam('oeGuestBookMaxGuestBookEntriesPerDay', 1);
         $this->getSession()->setVariable('usr', 'oxdefaultadmin');
         $this->assertTrue($oObj->floodProtection());
     }

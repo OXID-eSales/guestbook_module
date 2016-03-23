@@ -179,7 +179,7 @@ class oeGuestBookEntry extends oxBase
             $iCnt = $oDb->getOne($sSelect);
 
             $myConfig = $this->getConfig();
-            if ((!$myConfig->getConfigParam('iMaxGBEntriesPerDay')) || ($iCnt < $myConfig->getConfigParam('iMaxGBEntriesPerDay'))) {
+            if ((!$myConfig->getConfigParam('oeGuestBookMaxGuestBookEntriesPerDay')) || ($iCnt < $myConfig->getConfigParam('oeGuestBookMaxGuestBookEntriesPerDay'))) {
                 $result = false;
             }
         }
