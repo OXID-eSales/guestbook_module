@@ -185,7 +185,7 @@ class oeGuestBookGuestBookTest extends OxidTestCase
         $oSession->expects($this->once())->method('checkSessionChallenge')->will($this->returnValue(true));
         oxRegistry::set('oxSession', $oSession);
 
-        /** @var GuestBook|PHPUnit_Framework_MockObject_MockObject $oView */
+        /** @var oeGuestBookGuestBook|PHPUnit_Framework_MockObject_MockObject $oView */
         $oView = $this->getMock('oeGuestBookGuestBook', array('getConfig', 'canAcceptFormData'));
         $oView->expects($this->atLeastOnce())->method('getConfig')->will($this->returnValue($oConfig));
         $oView->expects($this->never())->method('canAcceptFormData');
@@ -212,7 +212,7 @@ class oeGuestBookGuestBookTest extends OxidTestCase
         $oSession->expects($this->once())->method('checkSessionChallenge')->will($this->returnValue(true));
         oxRegistry::set('oxSession', $oSession);
 
-        /** @var GuestBook|PHPUnit_Framework_MockObject_MockObject $oView */
+        /** @var oeGuestBookGuestBook|PHPUnit_Framework_MockObject_MockObject $oView */
         $oView = $this->getMock('oeGuestBookGuestBook', array('getConfig', 'canAcceptFormData'));
         $oView->expects($this->atLeastOnce())->method('getConfig')->will($this->returnValue($oConfig));
         $oView->expects($this->never())->method('canAcceptFormData');
@@ -239,7 +239,7 @@ class oeGuestBookGuestBookTest extends OxidTestCase
         $oSession->expects($this->once())->method('checkSessionChallenge')->will($this->returnValue(true));
         oxRegistry::set('oxSession', $oSession);
 
-        /** @var GuestBook|PHPUnit_Framework_MockObject_MockObject $oView */
+        /** @var oeGuestBookGuestBook|PHPUnit_Framework_MockObject_MockObject $oView */
         $oView = $this->getMock('oeGuestBookGuestBook', array('getConfig', 'canAcceptFormData'));
         $oView->expects($this->atLeastOnce())->method('getConfig')->will($this->returnValue($oConfig));
         $oView->expects($this->never())->method('canAcceptFormData');
@@ -266,7 +266,7 @@ class oeGuestBookGuestBookTest extends OxidTestCase
         $oSession->expects($this->once())->method('checkSessionChallenge')->will($this->returnValue(true));
         oxRegistry::set('oxSession', $oSession);
 
-        /** @var GuestBook|PHPUnit_Framework_MockObject_MockObject $oView */
+        /** @var oeGuestBookGuestBook|PHPUnit_Framework_MockObject_MockObject $oView */
         $oView = $this->getMock('oeGuestBookGuestBook', array('getConfig', 'canAcceptFormData'));
         $oView->expects($this->atLeastOnce())->method('getConfig')->will($this->returnValue($oConfig));
         $oView->expects($this->never())->method('canAcceptFormData');
@@ -293,7 +293,7 @@ class oeGuestBookGuestBookTest extends OxidTestCase
         $oSession->expects($this->once())->method('checkSessionChallenge')->will($this->returnValue(true));
         oxRegistry::set('oxSession', $oSession);
 
-        /** @var GuestBook|PHPUnit_Framework_MockObject_MockObject $oView */
+        /** @var oeGuestBookGuestBook|PHPUnit_Framework_MockObject_MockObject $oView */
         $oView = $this->getMock('oeGuestBookGuestBook', array('getConfig', 'canAcceptFormData'));
         $oView->expects($this->atLeastOnce())->method('getConfig')->will($this->returnValue($oConfig));
         $oView->expects($this->once())->method('canAcceptFormData')->will($this->returnValue(true));
@@ -320,7 +320,7 @@ class oeGuestBookGuestBookTest extends OxidTestCase
         $oSession->expects($this->once())->method('checkSessionChallenge')->will($this->returnValue(true));
         oxRegistry::set('oxSession', $oSession);
 
-        /** @var GuestBook|PHPUnit_Framework_MockObject_MockObject $oView */
+        /** @var oeGuestBookGuestBook|PHPUnit_Framework_MockObject_MockObject $oView */
         $oView = $this->getMock('oeGuestBookGuestBook', array('getConfig', 'canAcceptFormData'));
         $oView->expects($this->atLeastOnce())->method('getConfig')->will($this->returnValue($oConfig));
         $oView->expects($this->once())->method('canAcceptFormData')->will($this->returnValue(false));

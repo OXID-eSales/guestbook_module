@@ -95,7 +95,7 @@ class oeGuestBookGuestBookEntryTest extends OxidTestCase
         $oSession->expects($this->once())->method('checkSessionChallenge')->will($this->returnValue(true));
         oxRegistry::set('oxSession', $oSession);
 
-        /** @var GuestbookEntry|PHPUnit_Framework_MockObject_MockObject $oView */
+        /** @var oeGuestBookGuestBookEntry|PHPUnit_Framework_MockObject_MockObject $oView */
         $oView = $this->getMock("oeGuestBookGuestBookEntry", array("init", "getConfig"));
         $oView->expects($this->any())->method('init');
         $oView->expects($this->once())->method('getConfig')->will($this->returnValue($oConfig));
@@ -205,7 +205,7 @@ class oeGuestBookGuestBookEntryTest extends OxidTestCase
         $oSession->expects($this->once())->method('checkSessionChallenge')->will($this->returnValue(true));
         oxRegistry::set('oxSession', $oSession);
 
-        /** @var GuestbookEntry|PHPUnit_Framework_MockObject_MockObject $oView */
+        /** @var oeGuestBookGuestBookEntry|PHPUnit_Framework_MockObject_MockObject $oView */
         $oView = $this->getMock("oeGuestBookGuestBookEntry", array("canAcceptFormData"));
         $oView->expects($this->any())->method('canAcceptFormData')->will($this->returnValue(true));
         $this->assertEquals('guestbook', $oView->saveEntry());
