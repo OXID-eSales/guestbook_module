@@ -1,4 +1,4 @@
-[{include file="headitem.tpl" title="ADMINGB_TITLE"|oxmultilangassign box="list"}]
+[{include file="headitem.tpl" title="OEGUESTBOOK_ADMINGB_TITLE"|oxmultilangassign box="list"}]
 
 [{if $readonly}]
     [{assign var="readonly" value="readonly disabled"}]
@@ -42,8 +42,8 @@ window.onload = function ()
     <tr>
         [{block name="admin_adminguestbook_list_sorting"}]
             <td class="listheader first" height="15" >[{oxmultilang ident="GENERAL_DATE"}]</td>
-            <td class="listheader">[{oxmultilang ident="ADMINGB_LIST_AUTHOR"}]</td>
-            <td class="listheader" colspan="2">[{oxmultilang ident="ADMINGB_LIST_ENTRY"}]</td>
+            <td class="listheader">[{oxmultilang ident="OEGUESTBOOK_ADMINGB_LIST_AUTHOR"}]</td>
+            <td class="listheader" colspan="2">[{oxmultilang ident="OEGUESTBOOK_ADMINGB_LIST_ENTRY"}]</td>
         [{/block}]
     </tr>
 
@@ -84,8 +84,8 @@ window.onload = function ()
 <script type="text/javascript">
 if (parent.parent)
 {   parent.parent.sShopTitle   = "[{$actshopobj->oxshops__oxname->getRawValue()|oxaddslashes}]";
-    parent.parent.sMenuItem    = "[{oxmultilang ident="ADMINGB_LIST_MENUITEM"}]";
-    parent.parent.sMenuSubItem = "[{oxmultilang ident="ADMINGB_LIST_MENUSUBITEM"}]";
+    parent.parent.sMenuItem    = "[{oxmultilang ident="OEGUESTBOOK_ADMINGB_LIST_MENUITEM"}]";
+    parent.parent.sMenuSubItem = "[{oxmultilang ident="OEGUESTBOOK_ADMINGB_LIST_MENUSUBITEM"}]";
     parent.parent.sWorkArea    = "[{$_act}]";
     parent.parent.setTitle();
 }
