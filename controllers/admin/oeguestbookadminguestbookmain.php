@@ -105,7 +105,7 @@ class oeGuestBookAdminGuestBookMain extends oxAdminDetails
     }
 
     /**
-     * Add additional parameters for saving on oxgbentry save
+     * Add additional parameters for saving on oeGuestBookEntry save
      *
      * @param array $parameters
      *

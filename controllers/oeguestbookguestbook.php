@@ -290,7 +290,7 @@ class oeGuestBookGuestBook extends oxUBase
     /**
      * Method applies validation to entry and saves it to DB.
      * On error/success returns name of action to perform
-     * (on error: "guestbookentry?error=x"", on success: "guestbook").
+     * (on error: "guestbookentry?error=x"", on success: "oeguestbookguestbook").
      *
      * @return string
      */
@@ -323,7 +323,7 @@ class oeGuestBookGuestBook extends oxUBase
         if ('' == $reviewText) {
             $utilsView->addErrorToDisplay('ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_REVIEW_CONTAINS_NO_TEXT');
 
-            return 'oeguestbookguestbook';
+            return 'oeguestbookguestbookentry';
         }
 
         // flood protection
