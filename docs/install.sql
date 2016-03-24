@@ -1,4 +1,4 @@
-CREATE TABLE `oeguestbookentry` (
+CREATE TABLE IF NOT EXISTS `oeguestbookentry` (
   `OXID` char(32) character set latin1 COLLATE latin1_general_ci NOT NULL COMMENT 'Entry id',
   `OXSHOPID` int(11) NOT NULL DEFAULT '1' COMMENT 'Shop id (oxshops)',
   `OXUSERID` char(32) character set latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '' COMMENT 'User id (oxuser)',
@@ -9,3 +9,7 @@ CREATE TABLE `oeguestbookentry` (
   `OXTIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp',
   PRIMARY KEY (`OXID`)
 ) ENGINE=InnoDB COMMENT='Guestbook`s entries';
+
+INSERT IGNORE INTO `oxseo` (`OXOBJECTID`, `OXIDENT`, `OXSHOPID`, `OXLANG`, `OXSTDURL`, `OXSEOURL`, `OXTYPE`, `OXFIXED`, `OXEXPIRED`, `OXPARAMS`) VALUES
+('d12b7badee1037e7c1a5a7a245a14e11', '7c8aa72aa16b7d4a859b22d8b8328412', 'oxbaseshop', 0, 'index.php?cl=guestbook', 'gaestebuch/', 'static', 0, 0, ''),
+('d12b7badee1037e7c1a5a7a245a14e11', 'ded4f3786c6f4d6d14e3034834ebdcaf', 'oxbaseshop', 1, 'index.php?cl=guestbook', 'en/guestbook/', 'static', 0, 0, '');
