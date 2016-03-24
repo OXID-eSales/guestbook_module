@@ -32,5 +32,5 @@ $aLang = array(
     'ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_UNDEFINED_SHOP'            => 'Fehler: Unbekannter Shop.',
     'GUESTBOOK'                                                   => 'Unser Gästebuch',
     'MESSAGE_TO_BE_LOGGED_WRITE_GUESTBOOK'                        => 'Sie müssen angemeldet sein, um einen Gästebucheintrag schreiben zu können.',
-    'PAGE_TITLE_GUESTBOOK'                                        => 'Unser Gästebuch',
+    'PAGE_TITLE_OEGUESTBOOKGUESTBOOK'                             => 'Unser Gästebuch',
 );

@@ -32,5 +32,5 @@ $aLang = array(
     'ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_UNDEFINED_SHOP'            => 'Error: undefined shop',
     'GUESTBOOK'                                                   => 'Guest book',
     'MESSAGE_TO_BE_LOGGED_WRITE_GUESTBOOK'                        => 'You have to be logged in to write a guest book entry.',
-    'PAGE_TITLE_GUESTBOOK'                                        => 'Guest book',
+    'PAGE_TITLE_OEGUESTBOOKGUESTBOOK'                             => 'Guest book',
     );
