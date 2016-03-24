@@ -64,6 +64,13 @@ $aModule = array(
         'oeguestbookadminguestbooklist.tpl' => 'oe/guestbook/views/admin/tpl/oeguestbookadminguestbooklist.tpl',
         'oeguestbookadminguestbookmain.tpl' => 'oe/guestbook/views/admin/tpl/oeguestbookadminguestbookmain.tpl',
     ),
+    'blocks'      => array(
+        array(
+            'template' => 'widget/footer/services.tpl', 
+            'block'=>'footer_services_items', 
+            'file'=>'views/blocks/footer_services_items.tpl'
+        ),
+    ),
     'settings'    => array(
         array(
             'group' => 'main',
