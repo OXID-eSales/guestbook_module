@@ -39,6 +39,9 @@ class oeGuestBookFrontendTest extends \OxidEsales\TestingLibrary\AcceptanceTestC
         $this->loginAdminForModule("Extensions", "Modules");
 
         $this->openListItem("Guestbook");
+        if ($this->isElementPresent('module_deactivate')) {
+            $this->clickAndWait("module_deactivate", 1);
+        }
         if ($this->isElementPresent('module_activate')) {
             $this->clickAndWait("module_activate");
         }
@@ -52,8 +55,7 @@ class oeGuestBookFrontendTest extends \OxidEsales\TestingLibrary\AcceptanceTestC
     public function testFrontendGuestbookSpamProtection()
     {
         //setting spam protection 2 entries per day
-        $this->callShopSC("oxConfig", null, null, array("oeGuestBookMaxGuestBookEntriesPerDay" => array("type" => "str", "value" => '2')));
-
+        $this->callShopSC("oxConfig", null, null, array("oeGuestBookMaxGuestBookEntriesPerDay" => array("type" => "str", "value" => '2', "module" => "module:oeguestbook")));
         $this->clearCache();
         $this->openShop();
         $this->loginInFrontend("example_test@oxid-esales.dev", "useruser");
@@ -62,21 +64,18 @@ class oeGuestBookFrontendTest extends \OxidEsales\TestingLibrary\AcceptanceTestC
         $this->assertFalse($this->isVisible("rvw_txt"));
         $this->assertElementPresent("writeNewReview");
         $this->_writeReview(1, true);
-
-        $this->_writeReview(2, true);
-        $this->_writeReview(3, false);
-
+        $this->_writeReview(2, false);
         $this->clickAndWait("//dl[@id='footerServices']//a[text()='%GUESTBOOK%']");
         $this->assertElementNotPresent("writeNewReview");
 
-        // increasing guestbook entries limit
-        $this->callShopSC("oxConfig", null, null, array("oeGuestBookMaxGuestBookEntriesPerDay" => array("type" => "str", "value" => '10')));
-
+        $this->callShopSC("oxConfig", null, null, array("oeGuestBookMaxGuestBookEntriesPerDay" => array("type" => "str", "value" => '10', "module" => "module:oeguestbook")));
         $this->clickAndWait("//dl[@id='footerServices']//a[text()='%GUESTBOOK%']");
         $this->assertEquals("%PAGE_TITLE_GUESTBOOK%", $this->getText("//h1"));
         $this->assertElementPresent("writeNewReview");
         $this->_writeReview(3, true);
         $this->_writeReview(4, true);
+        $this->_writeReview(5, true);
+        $this->_writeReview(6, true);
     }
 
     /**
@@ -86,6 +85,9 @@ class oeGuestBookFrontendTest extends \OxidEsales\TestingLibrary\AcceptanceTestC
      */
     public function testFrontendFooter()
     {
+        $this->callShopSC("oxConfig", null, null, array("oeGuestBookMaxGuestBookEntriesPerDay" => array("type" => "str", "value" => '2', "module" => "module:oeguestbook")));
+        $this->clearCache();
+        $this->openShop();
         $this->clickAndWait("//dl[@id='footerServices']//a[text()='%GUESTBOOK%']");
         $this->assertEquals("%YOU_ARE_HERE%: / %GUESTBOOK%", $this->getText("breadCrumb"));
         $this->assertEquals("%PAGE_TITLE_GUESTBOOK%", $this->getText("//h1"));
