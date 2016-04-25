@@ -52,14 +52,14 @@ class oeGuestBookBackendTest extends \OxidEsales\TestingLibrary\AcceptanceTestCa
     public function testCreateGuestbook()
     {
         $this->loginAdmin("Customer Info", "Guestbook");
-        $this->openListItem("link=Demo guestbook entry [DE] ¨Äßü?");
-        $this->assertEquals("Demo guestbook entry [DE] ¨Äßü?", $this->getValue("editval[oxgbentries__oxcontent]"));
-        $this->type("editval[oxgbentries__oxcontent]", "ddd_¨Äßü?");
+        $this->openListItem("Demo guestbook entry [DE] Å¡Ã„ÃŸÃ¼Ð»");
+        $this->assertEquals("Demo guestbook entry [DE] Å¡Ã„ÃŸÃ¼Ð»", $this->getValue("editval[oeguestbookentry__oxcontent]"));
+        $this->type("editval[oeguestbookentry__oxcontent]", "ddd_Å¡Ã„ÃŸÃ¼Ð»");
         $this->clickAndWaitFrame("save", "list");
         $this->frame("list");
-        $this->assertElementPresent("link=ddd_¨Äßü?");
+        $this->assertElementPresent("link=ddd_Å¡Ã„ÃŸÃ¼Ð»");
         $this->frame("edit");
-        $this->assertEquals("ddd_¨Äßü?", $this->getValue("editval[oxgbentries__oxcontent]"));
+        $this->assertEquals("ddd_Å¡Ã„ÃŸÃ¼Ð»", $this->getValue("editval[oeguestbookentry__oxcontent]"));
     }
 
 
