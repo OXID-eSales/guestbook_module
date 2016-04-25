@@ -24,28 +24,6 @@
 
 class oeGuestBookFrontendTest extends \OxidEsales\TestingLibrary\AcceptanceTestCase
 {
-    /**
-     * Activates Guestbook module
-     *
-     * @param string $sTestSuitePath
-     *
-     * @throws Exception
-     */
-    public function addTestData($sTestSuitePath)
-    {
-        parent::addTestData($sTestSuitePath);
-
-        $this->open(shopURL . "admin");
-        $this->loginAdminForModule("Extensions", "Modules");
-
-        $this->openListItem("Guestbook");
-        if ($this->isElementPresent('module_deactivate')) {
-            $this->clickAndWait("module_deactivate", 1);
-        }
-        if ($this->isElementPresent('module_activate')) {
-            $this->clickAndWait("module_activate");
-        }
-    }
 
     /**
      * Guestbook spam control
