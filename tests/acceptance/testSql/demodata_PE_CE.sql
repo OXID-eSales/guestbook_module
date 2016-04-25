@@ -1,23 +1,3 @@
-CREATE TABLE IF NOT EXISTS `oeguestbookentry` (
-  `OXID` char(32) character set latin1 COLLATE latin1_general_ci NOT NULL COMMENT 'Entry id',
-  `OXSHOPID` int(11) NOT NULL DEFAULT '1' COMMENT 'Shop id (oxshops)',
-  `OXUSERID` char(32) character set latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '' COMMENT 'User id (oxuser)',
-  `OXCONTENT` text character set latin1 COLLATE latin1_general_ci NOT NULL COMMENT 'Content',
-  `OXCREATE` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Creation time',
-  `OXACTIVE` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Is active',
-  `OXVIEWED` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Whether the entry was checked by admin',
-  `OXTIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp',
-  PRIMARY KEY (`OXID`)
-) ENGINE=InnoDB COMMENT='Guestbook`s entries';
-
-INSERT INTO `oxseo` (`OXOBJECTID`, `OXIDENT`, `OXSHOPID`, `OXLANG`, `OXSTDURL`, `OXSEOURL`, `OXTYPE`, `OXFIXED`, `OXEXPIRED`, `OXPARAMS`) VALUES
-('d12b7badee1037e7c1a5a7a245a14e11', '7c8aa72aa16b7d4a859b22d8b8328412', 'oxbaseshop', 0, 'index.php?cl=oeguestbookguestbook', 'gaestebuch/', 'static', 0, 0, '')
-ON DUPLICATE KEY UPDATE `OXSTDURL` = 'index.php?cl=oeguestbookguestbook';
-
-INSERT INTO `oxseo` (`OXOBJECTID`, `OXIDENT`, `OXSHOPID`, `OXLANG`, `OXSTDURL`, `OXSEOURL`, `OXTYPE`, `OXFIXED`, `OXEXPIRED`, `OXPARAMS`) VALUES
-('d12b7badee1037e7c1a5a7a245a14e11', 'ded4f3786c6f4d6d14e3034834ebdcaf', 'oxbaseshop', 1, 'index.php?cl=oeguestbookguestbook', 'en/guestbook/', 'static', 0, 0, '')
-ON DUPLICATE KEY UPDATE `OXSTDURL` = 'index.php?cl=oeguestbookguestbook';
-
 #Users demodata
 REPLACE INTO `oxuser` (`OXID`,     `OXACTIVE`, `OXRIGHTS`, `OXSHOPID`,   `OXUSERNAME`,         `OXPASSWORD`,                       `OXPASSSALT`,        `OXCUSTNR`, `OXUSTID`, `OXCOMPANY`,          `OXFNAME`,        `OXLNAME`,           `OXSTREET`,        `OXSTREETNR`, `OXADDINFO`,                   `OXCITY`,            `OXCOUNTRYID`,                `OXZIP`, `OXFON`,        `OXFAX`,       `OXSAL`, `OXBONI`, `OXCREATE`,            `OXREGISTER`,          `OXPRIVFON`,   `OXMOBFON`,    `OXBIRTHDATE`) VALUES
                      ('testuser',  1,         'user',     'oxbaseshop', 'example_test@oxid-esales.dev', 'c9dadd994241c9e5fa6469547009328a', '7573657275736572',   8,         '',        'UserCompany ¨Äßü?',  'UserName¨Äßü?',  'UserSurname¨Äßü?',  'Musterstr.¨Äßü?', '1',          'User additional info ¨Äßü?',  'Musterstadt ¨Äßü?', 'a7c40f631fc920687.20179984', '79098',  '0800 111111', '0800 111112', 'Mr',     500,     '2008-02-05 14:42:42', '2008-02-05 14:42:42', '0800 111113', '0800 111114', '1980-01-01'),
@@ -31,3 +11,17 @@ REPLACE INTO `oxuser` (`OXID`,     `OXACTIVE`, `OXRIGHTS`, `OXSHOPID`,   `OXUSER
                      ('testuser5', 0,         'user',     'oxbaseshop', 'example08@oxid-esales.dev',    '82763a21b58be2f21e9bae3ebca59fec', '7573657274657374',   16,        '',        '',                   '7user¨Äßü?',     '7UserSurname¨Äßü?', '5 Street.¨Äßü?',  '1',          '',                            '6 City ¨Äßü?',      'a7c40f631fc920687.20179984', '777000', '111111',      '',            'Mr',     1000,    '2008-04-15 10:34:56', '2008-01-10 00:00:02', '',            '',            '0000-00-00'),
                      ('testuser6', 0,         'user',     'oxbaseshop', 'example04@oxid-esales.dev',    '82763a21b58be2f21e9bae3ebca59fec', '7573657274657374',   17,        '',        '',                   '3user¨Äßü?',     '3UserSurname¨Äßü?', '6 Street.¨Äßü?',  '1',          '',                            '7 City ¨Äßü?',      'a7c40f631fc920687.20179984', '111000', '222222',      '',            'Mr',     1000,    '2008-04-15 10:34:56', '2008-01-10 00:00:03', '',            '',            '0000-00-00'),
                      ('testuser7', 0,         'user',     'oxbaseshop', 'example06@oxid-esales.dev',    '82763a21b58be2f21e9bae3ebca59fec', '7573657274657374',   18,        '',        '',                   '5user¨Äßü?',     '5UserSurname¨Äßü?', '7 Street.¨Äßü?',  '1',          '',                            '1 City ¨Äßü?',      'a7c40f631fc920687.20179984', '222000', '333333',      '',            'Mr',     1000,    '2008-04-15 10:34:56', '2007-06-20 00:00:00', '',            '',            '0000-00-00');
+
+#set country, username, password for default user
+UPDATE oxuser
+  SET
+      oxcountryid = 'a7c40f631fc920687.20179984',
+      oxusername = 'admin@myoxideshop.com',
+      oxpassword = '6cb4a34e1b66d3445108cd91b67f98b9',
+      oxpasssalt = '6631386565336161636139613634663766383538633566623662613036636539'
+  WHERE oxid='oxdefaultadmin';
+
+#Guestbook demodata
+REPLACE INTO `oeguestbookentry` (`OXID`,           `OXSHOPID`,   `OXUSERID`,       `OXCONTENT`,                       `OXCREATE`,           `OXACTIVE`, `OXVIEWED`) VALUES
+                          ('testguestbook1', 'oxbaseshop', 'testuser',       'Demo guestbook entry [EN] ¨Äßü?', '2008-01-01 00:00:01', 1,          1),
+                          ('testguestbook2', 'oxbaseshop', 'oxdefaultadmin', 'Demo guestbook entry [DE] ¨Äßü?', '2008-01-02 00:00:01', 1,          1);
