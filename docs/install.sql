@@ -1,13 +1,14 @@
 CREATE TABLE IF NOT EXISTS `oeguestbookentry` (
   `OXID` char(32) character set latin1 COLLATE latin1_general_ci NOT NULL COMMENT 'Entry id',
-  `OXSHOPID` int(11) NOT NULL DEFAULT '1' COMMENT 'Shop id (oxshops)',
+  `OXSHOPID` char(32) character set latin1 collate latin1_general_ci NOT NULL default '' COMMENT 'Shop id (oxshops)',
   `OXUSERID` char(32) character set latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '' COMMENT 'User id (oxuser)',
-  `OXCONTENT` text character set latin1 COLLATE latin1_general_ci NOT NULL COMMENT 'Content',
+  `OXCONTENT` text NOT NULL COMMENT 'Content',
   `OXCREATE` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Creation time',
   `OXACTIVE` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Is active',
   `OXVIEWED` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Whether the entry was checked by admin',
   `OXTIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp',
-  PRIMARY KEY (`OXID`)
+  PRIMARY KEY (`OXID`),
+  KEY (`OXUSERID`)
 ) ENGINE=InnoDB COMMENT='Guestbook`s entries';
 
 INSERT INTO `oxseo` (`OXOBJECTID`, `OXIDENT`, `OXSHOPID`, `OXLANG`, `OXSTDURL`, `OXSEOURL`, `OXTYPE`, `OXFIXED`, `OXEXPIRED`, `OXPARAMS`) VALUES
