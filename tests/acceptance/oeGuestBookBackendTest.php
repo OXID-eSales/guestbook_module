@@ -33,15 +33,8 @@ class oeGuestBookBackendTest extends \OxidEsales\TestingLibrary\AcceptanceTestCa
      */
     public function addTestData($sTestSuitePath)
     {
+        $this->importSql(__DIR__ . '/../../docs/install.sql');
         parent::addTestData($sTestSuitePath);
-
-        $this->open(shopURL . "admin");
-        $this->loginAdminForModule("Extensions", "Modules");
-
-        $this->openListItem("Guestbook");
-        if ($this->isElementPresent('module_activate')) {
-            $this->clickAndWait("module_activate");
-        }
     }
 
     /**

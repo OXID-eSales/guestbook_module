@@ -26,6 +26,20 @@ class oeGuestBookFrontendTest extends \OxidEsales\TestingLibrary\AcceptanceTestC
 {
 
     /**
+     * Activates Guestbook module and removes entries from tables
+     *
+     * @param string $sTestSuitePath
+     *
+     * @throws Exception
+     */
+    public function addTestData($sTestSuitePath)
+    {
+        $this->importSql(__DIR__ . '/../../docs/install.sql');
+        parent::addTestData($sTestSuitePath);
+        $this->importSql(__DIR__ . '/testSql/removeOeGuestBookEntries.sql');
+    }
+
+    /**
      * Guestbook spam control
      *
      * @group frontend
