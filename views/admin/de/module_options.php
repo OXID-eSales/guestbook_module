@@ -28,5 +28,5 @@ $aLang = array(
     'charset'                                           => 'ISO-8859-15',
     'SHOP_MODULE_GROUP_main'                            => 'Einstellungen für das Gästebuch',
     'SHOP_MODULE_oeGuestBookMaxGuestBookEntriesPerDay'  => 'Anzahl der Gästebuch-Einträge, die jeder Kunde pro Tag maximal verfassen darf',
-    'SHOP_MODULE_oeGuestBookModerate'                   => 'Gästebuch-Einträge und Artikel-Bewertungen moderieren: Sie werden erst veröffentlicht, wenn sie von einem Administrator aktiv gesetzt werden',
+    'SHOP_MODULE_oeGuestBookModerate'                   => 'Gästebuch-Einträge moderieren: Sie werden erst veröffentlicht, wenn sie von einem Administrator aktiv gesetzt werden',
 );
