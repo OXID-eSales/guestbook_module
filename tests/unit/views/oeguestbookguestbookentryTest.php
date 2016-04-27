@@ -74,7 +74,7 @@ class oeGuestBookGuestBookEntryTest extends OxidTestCase
 
         $oExcp = unserialize($aErrors['default'][0]);
         $this->assertTrue($oExcp instanceof oxDisplayError);
-        $this->assertEquals(oxRegistry::getLang()->translateString("ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_LOGIN_TO_WRITE_ENTRY"), $oExcp->getOxMessage());
+        $this->assertEquals(oxRegistry::getLang()->translateString("OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_LOGIN_TO_WRITE_ENTRY"), $oExcp->getOxMessage());
     }
 
     /**
@@ -106,7 +106,7 @@ class oeGuestBookGuestBookEntryTest extends OxidTestCase
 
         $oExcp = unserialize($aErrors['default'][0]);
         $this->assertTrue($oExcp instanceof oxDisplayError);
-        $this->assertEquals(oxRegistry::getLang()->translateString("ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_UNDEFINED_SHOP"), $oExcp->getOxMessage());
+        $this->assertEquals(oxRegistry::getLang()->translateString("OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_UNDEFINED_SHOP"), $oExcp->getOxMessage());
     }
 
     /**
@@ -132,7 +132,7 @@ class oeGuestBookGuestBookEntryTest extends OxidTestCase
 
         $oExcp = unserialize($aErrors['default'][0]);
         $this->assertTrue($oExcp instanceof oxDisplayError);
-        $this->assertEquals(oxRegistry::getLang()->translateString("ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_REVIEW_CONTAINS_NO_TEXT"), $oExcp->getOxMessage());
+        $this->assertEquals(oxRegistry::getLang()->translateString("OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_REVIEW_CONTAINS_NO_TEXT"), $oExcp->getOxMessage());
     }
 
     /**
@@ -160,7 +160,7 @@ class oeGuestBookGuestBookEntryTest extends OxidTestCase
 
         $oExcp = unserialize($aErrors['default'][0]);
         $this->assertTrue($oExcp instanceof oxDisplayError);
-        $this->assertEquals(oxRegistry::getLang()->translateString("ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_MAXIMUM_NUMBER_EXCEEDED"), $oExcp->getOxMessage());
+        $this->assertEquals(oxRegistry::getLang()->translateString("OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_MAXIMUM_NUMBER_EXCEEDED"), $oExcp->getOxMessage());
     }
 
     /**

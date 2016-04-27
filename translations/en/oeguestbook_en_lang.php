@@ -25,12 +25,13 @@
 $sLangName = 'English';
 
 $aLang = array(
-    'charset'                                                     => 'UTF-8',
-    'ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_LOGIN_TO_WRITE_ENTRY'      => 'Error: you have to be logged in to write a guest book entry.',
-    'ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_MAXIMUM_NUMBER_EXCEEDED'   => 'Error: you exceeded the maximum number of reviews per day.',
-    'ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_REVIEW_CONTAINS_NO_TEXT'   => 'Error: your review contains no text.',
-    'ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_UNDEFINED_SHOP'            => 'Error: undefined shop',
-    'GUESTBOOK'                                                   => 'Guest book',
-    'MESSAGE_TO_BE_LOGGED_WRITE_GUESTBOOK'                        => 'You have to be logged in to write a guest book entry.',
-    'PAGE_TITLE_OEGUESTBOOKGUESTBOOK'                             => 'Guest book',
+    'charset'                                                                 => 'UTF-8',
+    'OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_LOGIN_TO_WRITE_ENTRY'      => 'Error: you have to be logged in to write a guest book entry.',
+    'OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_MAXIMUM_NUMBER_EXCEEDED'   => 'Error: you exceeded the maximum number of reviews per day.',
+    'OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_REVIEW_CONTAINS_NO_TEXT'   => 'Error: your review contains no text.',
+    'OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_UNDEFINED_SHOP'            => 'Error: undefined shop',
+    'OEGUESTBOOK_GUESTBOOK'                                                   => 'Guest book',
+    'OEGUESTBOOK_CLICK_HERE_TO_WRITE_ENTRY'                                   => 'Click here to write an entry',
+    'OEGUESTBOOK_MESSAGE_TO_BE_LOGGED_WRITE_GUESTBOOK'                        => 'You have to be logged in to write a guest book entry.',
+    'PAGE_TITLE_OEGUESTBOOKGUESTBOOK'                                         => 'Guest book',
     );

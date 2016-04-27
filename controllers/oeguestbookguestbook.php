@@ -307,21 +307,21 @@ class oeGuestBookGuestBook extends oxUBase
         // guest book`s entry is validated
         $utilsView = oxRegistry::get("oxUtilsView");
         if (!$userId) {
-            $utilsView->addErrorToDisplay('ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_LOGIN_TO_WRITE_ENTRY');
+            $utilsView->addErrorToDisplay('OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_LOGIN_TO_WRITE_ENTRY');
 
             //return to same page
             return;
         }
 
         if (!$shopId) {
-            $utilsView->addErrorToDisplay('ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_UNDEFINED_SHOP');
+            $utilsView->addErrorToDisplay('OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_UNDEFINED_SHOP');
 
             return 'oeguestbookguestbookentry';
         }
 
         // empty entries validation
         if ('' == $reviewText) {
-            $utilsView->addErrorToDisplay('ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_REVIEW_CONTAINS_NO_TEXT');
+            $utilsView->addErrorToDisplay('OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_REVIEW_CONTAINS_NO_TEXT');
 
             return 'oeguestbookguestbookentry';
         }
@@ -329,7 +329,7 @@ class oeGuestBookGuestBook extends oxUBase
         // flood protection
         $entry = oxNew('oeGuestBookEntry');
         if ($entry->floodProtection($shopId, $userId)) {
-            $utilsView->addErrorToDisplay('ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_MAXIMUM_NUMBER_EXCEEDED');
+            $utilsView->addErrorToDisplay('OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_MAXIMUM_NUMBER_EXCEEDED');
 
             return 'oeguestbookguestbookentry';
         }
@@ -358,7 +358,7 @@ class oeGuestBookGuestBook extends oxUBase
         $path = array();
 
         $baseLanguageId = oxRegistry::getLang()->getBaseLanguage();
-        $path['title'] = oxRegistry::getLang()->translateString('GUESTBOOK', $baseLanguageId, false);
+        $path['title'] = oxRegistry::getLang()->translateString('OEGUESTBOOK_GUESTBOOK', $baseLanguageId, false);
         $path['link'] = $this->getLink();
         $paths[] = $path;
 

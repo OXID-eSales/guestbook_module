@@ -81,9 +81,9 @@ class oeGuestBookFrontendTest extends \OxidEsales\TestingLibrary\AcceptanceTestC
         $this->clearCache();
         $this->openShop();
         $this->clickAndWait("//dl[@id='footerServices']//a[text()='%GUESTBOOK%']");
-        $this->assertEquals("%YOU_ARE_HERE%: / %GUESTBOOK%", $this->getText("breadCrumb"));
+        $this->assertEquals("%YOU_ARE_HERE%: / %OEGUESTBOOK_GUESTBOOK%", $this->getText("breadCrumb"));
         $this->assertEquals("%PAGE_TITLE_GUESTBOOK%", $this->getText("//h1"));
-        $this->assertElementPresent("link=%MESSAGE_TO_BE_LOGGED_WRITE_GUESTBOOK%");
+        $this->assertElementPresent("link=%OEGUESTBOOK_MESSAGE_TO_BE_LOGGED_WRITE_GUESTBOOK%");
     }
 
     /**
