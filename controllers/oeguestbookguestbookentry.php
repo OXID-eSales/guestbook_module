@@ -62,7 +62,7 @@ class oeGuestBookGuestBookEntry extends oxUBase
 
         // guest book`s entry is validated
         if (!$sUserId) {
-            $sErrorMessage = 'ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_LOGIN_TO_WRITE_ENTRY';
+            $sErrorMessage = 'OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_LOGIN_TO_WRITE_ENTRY';
             oxRegistry::get("oxUtilsView")->addErrorToDisplay($sErrorMessage);
 
             //return to same page
@@ -70,7 +70,7 @@ class oeGuestBookGuestBookEntry extends oxUBase
         }
 
         if (!$sShopId) {
-            $sErrorMessage = 'ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_UNDEFINED_SHOP';
+            $sErrorMessage = 'OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_UNDEFINED_SHOP';
             oxRegistry::get("oxUtilsView")->addErrorToDisplay($sErrorMessage);
 
             return 'guestbookentry';
@@ -78,7 +78,7 @@ class oeGuestBookGuestBookEntry extends oxUBase
 
         // empty entries validation
         if ('' == $sReviewText) {
-            $sErrorMessage = 'ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_REVIEW_CONTAINS_NO_TEXT';
+            $sErrorMessage = 'OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_REVIEW_CONTAINS_NO_TEXT';
             oxRegistry::get("oxUtilsView")->addErrorToDisplay($sErrorMessage);
 
             return 'guestbookentry';
@@ -87,7 +87,7 @@ class oeGuestBookGuestBookEntry extends oxUBase
         // flood protection
         $oEntrie = oxNew('oeGuestBookEntry');
         if ($oEntrie->floodProtection($sShopId, $sUserId)) {
-            $sErrorMessage = 'ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_MAXIMUM_NUMBER_EXCEEDED';
+            $sErrorMessage = 'OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_MAXIMUM_NUMBER_EXCEEDED';
             oxRegistry::get("oxUtilsView")->addErrorToDisplay($sErrorMessage);
 
             return 'guestbookentry';
