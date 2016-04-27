@@ -34,4 +34,7 @@ $aLang = array(
     'OEGUESTBOOK_CLICK_HERE_TO_WRITE_ENTRY'                                   => 'Unser Gästebuch',
     'OEGUESTBOOK_MESSAGE_TO_BE_LOGGED_WRITE_GUESTBOOK'                        => 'Sie müssen angemeldet sein, um einen Gästebucheintrag schreiben zu können.',
     'PAGE_TITLE_OEGUESTBOOKGUESTBOOK'                                         => 'Unser Gästebuch',
+    'OEGUESTBOOK_NO_ENTRY_AVAILABLE'                                          => 'Noch kein Eintrag vorhanden.',
+    'OEGUESTBOOK_MESSAGE'                                                     => 'Nachricht',
+    'OEGUESTBOOK_WRITES'                                                      => 'schreibt',
 );

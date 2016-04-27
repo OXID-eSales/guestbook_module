@@ -9,7 +9,7 @@
                 [{oxid_include_dynamic file="form/formparams.tpl"}]
                 <input type="hidden" name="fnc" value="saveEntry">
                 <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
-                <label>[{oxmultilang ident="MESSAGE"}]</label>
+                <label>[{oxmultilang ident="OEGUESTBOOK_MESSAGE"}]</label>
                 <textarea cols="102" rows="15" name="rvw_txt" class="areabox"></textarea><br>
                 <button id="reviewSave" type="submit" class="submitButton">[{oxmultilang ident="SUBMIT"}]</button>
             </div>

@@ -34,4 +34,7 @@ $aLang = array(
     'OEGUESTBOOK_CLICK_HERE_TO_WRITE_ENTRY'                                   => 'Click here to write an entry',
     'OEGUESTBOOK_MESSAGE_TO_BE_LOGGED_WRITE_GUESTBOOK'                        => 'You have to be logged in to write a guest book entry.',
     'PAGE_TITLE_OEGUESTBOOKGUESTBOOK'                                         => 'Guest book',
-    );
+    'OEGUESTBOOK_NO_ENTRY_AVAILABLE'                                          => 'No entries available yet.',
+    'OEGUESTBOOK_MESSAGE'                                                     => 'Message',
+    'OEGUESTBOOK_WRITES'                                                      => 'writes',
+);

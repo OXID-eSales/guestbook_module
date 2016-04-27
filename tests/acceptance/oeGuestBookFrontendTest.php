@@ -51,18 +51,18 @@ class oeGuestBookFrontendTest extends \OxidEsales\TestingLibrary\AcceptanceTestC
         $this->clearCache();
         $this->openShop();
         $this->loginInFrontend("example_test@oxid-esales.dev", "useruser");
-        $this->clickAndWait("//dl[@id='footerServices']//a[text()='%GUESTBOOK%']");
-        $this->assertEquals("%PAGE_TITLE_GUESTBOOK%", $this->getText("//h1"));
+        $this->clickAndWait("//dl[@id='footerServices']//a[text()='%OEGUESTBOOK_GUESTBOOK%']");
+        $this->assertEquals("%PAGE_TITLE_OEGUESTBOOKGUESTBOOK%", $this->getText("//h1"));
         $this->assertFalse($this->isVisible("rvw_txt"));
         $this->assertElementPresent("writeNewReview");
         $this->_writeReview(1, true);
         $this->_writeReview(2, false);
-        $this->clickAndWait("//dl[@id='footerServices']//a[text()='%GUESTBOOK%']");
+        $this->clickAndWait("//dl[@id='footerServices']//a[text()='%OEGUESTBOOK_GUESTBOOK%']");
         $this->assertElementNotPresent("writeNewReview");
 
         $this->callShopSC("oxConfig", null, null, array("oeGuestBookMaxGuestBookEntriesPerDay" => array("type" => "str", "value" => '10', "module" => "module:oeguestbook")));
-        $this->clickAndWait("//dl[@id='footerServices']//a[text()='%GUESTBOOK%']");
-        $this->assertEquals("%PAGE_TITLE_GUESTBOOK%", $this->getText("//h1"));
+        $this->clickAndWait("//dl[@id='footerServices']//a[text()='%OEGUESTBOOK_GUESTBOOK%']");
+        $this->assertEquals("%PAGE_TITLE_OEGUESTBOOKGUESTBOOK%", $this->getText("//h1"));
         $this->assertElementPresent("writeNewReview");
         $this->_writeReview(3, true);
         $this->_writeReview(4, true);
@@ -80,9 +80,9 @@ class oeGuestBookFrontendTest extends \OxidEsales\TestingLibrary\AcceptanceTestC
         $this->callShopSC("oxConfig", null, null, array("oeGuestBookMaxGuestBookEntriesPerDay" => array("type" => "str", "value" => '2', "module" => "module:oeguestbook")));
         $this->clearCache();
         $this->openShop();
-        $this->clickAndWait("//dl[@id='footerServices']//a[text()='%GUESTBOOK%']");
+        $this->clickAndWait("//dl[@id='footerServices']//a[text()='%OEGUESTBOOK_GUESTBOOK%']");
         $this->assertEquals("%YOU_ARE_HERE%: / %OEGUESTBOOK_GUESTBOOK%", $this->getText("breadCrumb"));
-        $this->assertEquals("%PAGE_TITLE_GUESTBOOK%", $this->getText("//h1"));
+        $this->assertEquals("%PAGE_TITLE_OEGUESTBOOKGUESTBOOK%", $this->getText("//h1"));
         $this->assertElementPresent("link=%OEGUESTBOOK_MESSAGE_TO_BE_LOGGED_WRITE_GUESTBOOK%");
     }
 
