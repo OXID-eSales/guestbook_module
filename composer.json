@@ -1,0 +1,16 @@
+{
+  "name": "oxid-esales/guestbook-module",
+  "description": "This is Guestbook module for OXID eShop.",
+  "type": "oxideshop-module",
+  "keywords": ["oxid", "modules", "eShop", "guestbook"],
+  "homepage": "https://www.oxid-esales.com/en/home.html",
+  "license": [
+    "GPL-3.0",
+    "proprietary"
+  ],
+  "extra": {
+    "oxideshop": {
+      "target-directory": "oe/guestbook"
+    }
+  }
+}
