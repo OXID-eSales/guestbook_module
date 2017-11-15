@@ -25,7 +25,7 @@
 $sLangName = 'English';
 
 $aLang = array(
-    'charset'                                           => 'ISO-8859-15',
+    'charset'                                           => 'UTF-8',
     'OEGUESTBOOK_ADMINGB_LIST_AUTHOR'                   => 'Author',
     'OEGUESTBOOK_ADMINGB_LIST_ENTRY'                    => 'Entry',
     'OEGUESTBOOK_ADMINGB_LIST_MENUITEM'                 => 'Customer Information',

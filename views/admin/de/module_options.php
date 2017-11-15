@@ -25,8 +25,8 @@
 $sLangName = 'Deutsch';
 
 $aLang = array(
-    'charset'                                           => 'ISO-8859-15',
-    'SHOP_MODULE_GROUP_main'                            => 'Einstellungen für das Gästebuch',
-    'SHOP_MODULE_oeGuestBookMaxGuestBookEntriesPerDay'  => 'Anzahl der Gästebuch-Einträge, die jeder Kunde pro Tag maximal verfassen darf',
-    'SHOP_MODULE_oeGuestBookModerate'                   => 'Gästebuch-Einträge moderieren: Sie werden erst veröffentlicht, wenn sie von einem Administrator aktiv gesetzt werden',
+    'charset'                                           => 'UTF-8',
+    'SHOP_MODULE_GROUP_main'                            => 'Einstellungen fÃ¼r das GÃ¤stebuch',
+    'SHOP_MODULE_oeGuestBookMaxGuestBookEntriesPerDay'  => 'Anzahl der GÃ¤stebuch-EintrÃ¤ge, die jeder Kunde pro Tag maximal verfassen darf',
+    'SHOP_MODULE_oeGuestBookModerate'                   => 'GÃ¤stebuch-EintrÃ¤ge moderieren: Sie werden erst verÃ¶ffentlicht, wenn sie von einem Administrator aktiv gesetzt werden',
 );
