@@ -46,7 +46,9 @@ class oeGuestBookGuestBookEntryTest extends OxidTestCase
      */
     public function testGetFormId()
     {
-        oxTestModules::addFunction("oxUtilsObject", "generateUId", "{return 'xxx';}");
+        $utilsObject = $this->getMock("oxUtilsObject", ["generateUId"]);
+        $utilsObject->method("generateUId")->willReturn("xxx");
+        \OxidEsales\Eshop\Core\Registry::set('oxUtilsObject', $utilsObject);
 
         $oView = oxNew('oeGuestBookGuestBookEntry');
         $this->assertEquals('xxx', $oView->getFormId());

@@ -39,6 +39,13 @@ class oeGuestBookFrontendTest extends \OxidEsales\TestingLibrary\AcceptanceTestC
         $this->importSql(__DIR__ . '/testSql/removeOeGuestBookEntries.sql');
     }
 
+    protected function setUp()
+    {
+        parent::setUp();
+
+        \OxidEsales\Eshop\Core\Registry::set(\OxidEsales\Eshop\Core\Language::class, null);
+    }
+
     /**
      * Guestbook spam control
      *

@@ -29,6 +29,8 @@ class oeGuestBookEntryTest extends OxidTestCase
 
     private $_sObjTime = null;
 
+    private $adminId = null;
+
     /**
      * Initialize the fixture.
      *
@@ -38,9 +40,12 @@ class oeGuestBookEntryTest extends OxidTestCase
     {
         parent::setUp();
 
+        $db = \OxidEsales\Eshop\Core\DatabaseProvider::getDb();
+        $this->adminId = $db->getOne("select OXID from `oxuser` where `OXUSERNAME` = 'admin';");
+
         $myConfig = $this->getConfig();
         $this->_oObj = oxNew('oeGuestBookEntry');
-        $this->_oObj->oeguestbookentry__oxuserid = new oxField('oxdefaultadmin', oxField::T_RAW);
+        $this->_oObj->oeguestbookentry__oxuserid = new oxField($this->adminId, oxField::T_RAW);
         $this->_oObj->oeguestbookentry__oxcontent = new oxField("test content\ntest content", oxField::T_RAW);
         $this->_oObj->oeguestbookentry__oxcreate = new oxField(null, oxField::T_RAW);
         $this->_oObj->oeguestbookentry__oxshopid = new oxField($myConfig->getShopId(), oxField::T_RAW);
@@ -122,7 +127,7 @@ class oeGuestBookEntryTest extends OxidTestCase
     public function testGetAllEntries()
     {
         $myDB = oxDb::getDb();
-        $sSql = 'insert into oeguestbookentry (oxid,oxshopid,oxuserid,oxcontent)values("_test","' . $this->getConfig()->getBaseShopId() . '","oxdefaultadmin","AA test content")';
+        $sSql = 'insert into oeguestbookentry (oxid,oxshopid,oxuserid,oxcontent)values("_test","' . $this->getConfig()->getBaseShopId() . '","' . $this->adminId . '","AA test content")';
         $myDB->execute($sSql);
         $oObj = oxNew('oeGuestBookEntry');
         $aEntries = $oObj->getAllEntries(0, 10, 'oxcontent');
@@ -135,7 +140,7 @@ class oeGuestBookEntryTest extends OxidTestCase
     {
         $this->getConfig()->setConfigParam('oeGuestBookModerate', 1);
         $myDB = oxDb::getDb();
-        $sSql = 'insert into oeguestbookentry (oxid,oxshopid,oxuserid,oxcontent)values("_test","' . $this->getConfig()->getBaseShopId() . '","oxdefaultadmin","AA test content")';
+        $sSql = 'insert into oeguestbookentry (oxid,oxshopid,oxuserid,oxcontent)values("_test","' . $this->getConfig()->getBaseShopId() . '","' . $this->adminId . '","AA test content")';
         $myDB->execute($sSql);
         $oObj = oxNew('oeGuestBookEntry');
         $aEntries = $oObj->getAllEntries(0, 10, null);
@@ -169,7 +174,7 @@ class oeGuestBookEntryTest extends OxidTestCase
     {
         $oObj = oxNew('oeGuestBookEntry');
         $myConfig = $this->getConfig();
-        $this->assertFalse($oObj->floodProtection($myConfig->getShopId(), 'oxdefaultadmin'));
+        $this->assertFalse($oObj->floodProtection($myConfig->getShopId(), $this->adminId));
     }
 
     public function testFloodProtectionMaxReached()
@@ -177,7 +182,7 @@ class oeGuestBookEntryTest extends OxidTestCase
         $oObj = oxNew('oeGuestBookEntry');
         $myConfig = $this->getConfig();
         $myConfig->setConfigParam('oeGuestBookMaxGuestBookEntriesPerDay', 1);
-        $this->assertTrue($oObj->floodProtection($myConfig->getShopId(), 'oxdefaultadmin'));
+        $this->assertTrue($oObj->floodProtection($myConfig->getShopId(), $this->adminId));
     }
 
     public function testFloodProtectionIfShopAndUserNotSet()
