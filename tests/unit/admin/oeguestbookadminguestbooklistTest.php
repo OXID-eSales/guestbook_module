@@ -25,9 +25,8 @@
 /**
  * Tests for oeGuestBookAdminGuestBookList class
  */
-class oeGuestBookAdminGuestBookListTest extends OxidTestCase
+class oeGuestBookAdminGuestBookListTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
-
     /**
      * AdminGuestbook_List::Render() test case
      *

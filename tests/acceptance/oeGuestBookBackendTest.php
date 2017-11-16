@@ -54,6 +54,4 @@ class oeGuestBookBackendTest extends \OxidEsales\TestingLibrary\AcceptanceTestCa
         $this->frame("edit");
         $this->assertEquals("ddd_šÄßüл", $this->getValue("editval[oeguestbookentry__oxcontent]"));
     }
-
-
 }

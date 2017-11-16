@@ -25,7 +25,7 @@
 /**
  * Tests for oeGuestBookAdminGuestBookMain class
  */
-class oeGuestBookAdminGuestBookMainTest extends OxidTestCase
+class oeGuestBookAdminGuestBookMainTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
 
     /**

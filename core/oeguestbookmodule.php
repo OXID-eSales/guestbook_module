@@ -28,11 +28,12 @@
  *
  * @codeCoverageIgnore
  */
-class oeGuestbookModule extends oxModule
+class oeGuestbookModule extends \OxidEsales\Eshop\Core\Module\Module
 {
-    
     /**
      * Module activation script.
+     *
+     * @return bool
      */
     public static function onActivate()
     {
@@ -44,7 +45,6 @@ class oeGuestbookModule extends oxModule
      */
     public static function onDeactivate()
     {
-        
     }
 
     /**
@@ -78,11 +78,13 @@ class oeGuestbookModule extends oxModule
      *
      * @param string $sSqlFile      SQL file located in module docs folder (usually install.sql or uninstall.sql).
      * @param string $sFailureError An error message to show on failure.
+     *
+     * @return bool
      */
     protected static function _dbEvent($sSqlFile, $sFailureError = 'Operation failed: ')
     {
         try {
-            $oDb  = oxDb::getDb();
+            $oDb  = \OxidEsales\Eshop\Core\DatabaseProvider::getDb();
             $sSql = file_get_contents(dirname(__FILE__) . '/../docs/' . (string) $sSqlFile);
             $aSql = (array) explode(';', $sSql);
 
@@ -110,7 +112,7 @@ class oeGuestbookModule extends oxModule
      */
     protected static function _getFolderToClear($sClearFolderPath = '')
     {
-        $sTempFolderPath = (string) oxRegistry::getConfig()->getConfigParam('sCompileDir');
+        $sTempFolderPath = (string) \OxidEsales\Eshop\Core\Registry::getConfig()->getConfigParam('sCompileDir');
 
         if (!empty($sClearFolderPath) and (strpos($sClearFolderPath, $sTempFolderPath) !== false)) {
             $sFolderPath = $sClearFolderPath;

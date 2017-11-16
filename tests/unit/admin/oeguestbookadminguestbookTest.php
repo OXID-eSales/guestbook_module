@@ -25,9 +25,8 @@
 /**
  * Tests for oeGuestBookAdminGuestBookList class
  */
-class oeGuestBookAdminGuestBookTest extends OxidTestCase
+class oeGuestBookAdminGuestBookTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
-
     /**
      * oeGuestBookAdminGuestBookList::Render() test case
      *
@@ -38,5 +37,4 @@ class oeGuestBookAdminGuestBookTest extends OxidTestCase
         $oView = oxNew('oeGuestBookAdminGuestBook');
         $this->assertEquals('oeguestbookadminguestbook.tpl', $oView->render());
     }
-
 }

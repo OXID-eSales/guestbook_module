@@ -29,4 +29,4 @@ $aLang = array(
     'SHOP_MODULE_GROUP_main'                            => 'Guestbook settings',
     'SHOP_MODULE_oeGuestBookMaxGuestBookEntriesPerDay'  => 'Number of Guestbook Entries each User is allowed to enter per Day',
     'SHOP_MODULE_oeGuestBookModerate'                   => 'Moderate Guestbook: They are only published after they are activated by an Administrator User',
-    );
+);

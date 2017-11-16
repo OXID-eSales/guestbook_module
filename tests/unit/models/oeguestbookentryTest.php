@@ -22,9 +22,9 @@
  * @copyright (C) OXID eSales AG 2003-2016
  */
 
-class oeGuestBookEntryTest extends OxidTestCase
+class oeGuestBookEntryTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
-
+    /** @var oeGuestBookEntry */
     private $_oObj = null;
 
     private $_sObjTime = null;
@@ -126,7 +126,7 @@ class oeGuestBookEntryTest extends OxidTestCase
 
     public function testGetAllEntries()
     {
-        $myDB = oxDb::getDb();
+        $myDB = \OxidEsales\Eshop\Core\DatabaseProvider::getDb();
         $sSql = 'insert into oeguestbookentry (oxid,oxshopid,oxuserid,oxcontent)values("_test","' . $this->getConfig()->getBaseShopId() . '","' . $this->adminId . '","AA test content")';
         $myDB->execute($sSql);
         $oObj = oxNew('oeGuestBookEntry');
@@ -139,7 +139,7 @@ class oeGuestBookEntryTest extends OxidTestCase
     public function testGetAllEntriesModerationOn()
     {
         $this->getConfig()->setConfigParam('oeGuestBookModerate', 1);
-        $myDB = oxDb::getDb();
+        $myDB = \OxidEsales\Eshop\Core\DatabaseProvider::getDb();
         $sSql = 'insert into oeguestbookentry (oxid,oxshopid,oxuserid,oxcontent)values("_test","' . $this->getConfig()->getBaseShopId() . '","' . $this->adminId . '","AA test content")';
         $myDB->execute($sSql);
         $oObj = oxNew('oeGuestBookEntry');

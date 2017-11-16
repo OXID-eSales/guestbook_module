@@ -22,7 +22,7 @@
  * @copyright (C) OXID eSales AG 2003-2016
  */
 
-class oeGuestBookGuestBookTest extends OxidTestCase
+class oeGuestBookGuestBookTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
 
     private $_oObj = null;

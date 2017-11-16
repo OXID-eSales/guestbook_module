@@ -22,7 +22,7 @@
  * @copyright (C) OXID eSales AG 2003-2016
  */
 
-class UtfTest extends OxidTestCase
+class UtfTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
     /** @var string Original theme */
     private $_sOrigTheme;
@@ -55,7 +55,7 @@ class UtfTest extends OxidTestCase
 
         $oEntry = new oeGuestBookEntry();
         $oEntry->setId('_testGbentry');
-        $oEntry->oeguestbookentry__oxcontent = new oxField($sValue);
+        $oEntry->oeguestbookentry__oxcontent = new \OxidEsales\Eshop\Core\Field($sValue);
         $oEntry->save();
 
         $oEntry = new oeGuestBookEntry();

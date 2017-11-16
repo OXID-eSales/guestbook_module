@@ -66,8 +66,8 @@ $aModule = array(
     ),
     'blocks'      => array(
         array(
-            'template' => 'widget/footer/services.tpl', 
-            'block'=>'footer_services_items', 
+            'template' => 'widget/footer/services.tpl',
+            'block'=>'footer_services_items',
             'file'=>'views/blocks/footer_services_items.tpl'
         ),
     ),

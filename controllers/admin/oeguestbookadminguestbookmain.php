@@ -27,7 +27,7 @@
  * Returns template, that arranges guestbook record information.
  * Admin Menu: User information -> Guestbook -> Main.
  */
-class oeGuestBookAdminGuestBookMain extends oxAdminDetails
+class oeGuestBookAdminGuestBookMain extends \OxidEsales\Eshop\Application\Controller\Admin\AdminDetailsController
 {
 
     /**
@@ -45,15 +45,15 @@ class oeGuestBookAdminGuestBookMain extends oxAdminDetails
         $soxId = $this->_aViewData["oxid"] = $this->getEditObjectId();
         if (isset($soxId) && $soxId != '-1') {
             // load object
-            $oLinks = oxNew('oeGuestBookEntry');
-            $oLinks->load($soxId);
+            $links = oxNew('oeGuestBookEntry');
+            $links->load($soxId);
 
             // #580A - setting GB entry as viewed in admin
-            if (!isset($oLinks->oeguestbookentry__oxviewed) || !$oLinks->oeguestbookentry__oxviewed->value) {
-                $oLinks->oeguestbookentry__oxviewed = new oxField(1);
-                $oLinks->save();
+            if (!isset($links->oeguestbookentry__oxviewed) || !$links->oeguestbookentry__oxviewed->value) {
+                $links->oeguestbookentry__oxviewed = new oxField(1);
+                $links->save();
             }
-            $this->_aViewData["edit"] = $oLinks;
+            $this->_aViewData["edit"] = $links;
         }
 
         //show "active" checkbox if moderating is active
@@ -70,28 +70,30 @@ class oeGuestBookAdminGuestBookMain extends oxAdminDetails
         parent::save();
 
         $soxId = $this->getEditObjectId();
-        $aParams = oxRegistry::getConfig()->getRequestParameter("editval");
+        /** @var \OxidEsales\Eshop\Core\Request $request */
+        $request = \OxidEsales\Eshop\Core\Registry::get(\OxidEsales\Eshop\Core\Request::class);
+        $formData = $request->getRequestEscapedParameter("editval");
 
         // checkbox handling
-        if (!isset($aParams['oeguestbookentry__oxactive'])) {
-            $aParams['oeguestbookentry__oxactive'] = 0;
+        if (!isset($formData['oeguestbookentry__oxactive'])) {
+            $formData['oeguestbookentry__oxactive'] = 0;
         }
 
-        $oLinks = $this->getGuestbookEntryObject();
+        $links = $this->getGuestbookEntryObject();
         if ($soxId != "-1") {
-            $oLinks->load($soxId);
+            $links->load($soxId);
         } else {
-            $aParams['oeguestbookentry__oxid'] = null;
+            $formData['oeguestbookentry__oxid'] = null;
 
             // author
-            $aParams['oeguestbookentry__oxuserid'] = oxRegistry::getSession()->getVariable('auth');
+            $formData['oeguestbookentry__oxuserid'] = oxRegistry::getSession()->getVariable('auth');
         }
 
-        $aParams = $this->appendAdditionalParametersForSave($aParams);
+        $formData = $this->appendAdditionalParametersForSave($formData);
 
-        $oLinks->assign($aParams);
-        $oLinks->save();
-        $this->setEditObjectId($oLinks->getId());
+        $links->assign($formData);
+        $links->save();
+        $this->setEditObjectId($links->getId());
     }
 
     /**
