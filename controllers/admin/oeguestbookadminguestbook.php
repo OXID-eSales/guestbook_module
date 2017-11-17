@@ -28,7 +28,7 @@
  * and "oeguestbookadminguestbookmain.tpl") to frame.
  * Admin Menu: User information -> Guestbook.
  */
-class oeGuestBookAdminGuestBook extends \OxidEsales\Eshop\Application\Controller\Admin\AdminView
+class oeGuestBookAdminGuestBook extends \OxidEsales\Eshop\Application\Controller\Admin\AdminController
 {
 
     /**
