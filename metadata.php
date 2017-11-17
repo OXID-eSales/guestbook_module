@@ -33,12 +33,12 @@ $sMetadataVersion = '1.1';
 $aModule = array(
     'id'          => 'oeguestbook',
     'title'       => array(
-        'de' => 'Gästebuch',
+        'de' => 'GÃ¤stebuch',
         'en' => 'Guestbook',
     ),
     'description' => array(
-        'de' => 'Erlaubt Kunden, Texteinträge auf der Seite Gästebuch des eShops zu schreiben. Im eShop Admin können die
-        Texteinträge verwaltet werden.',
+        'de' => 'Erlaubt Kunden, TexteintrÃ¤ge auf der Seite GÃ¤stebuch des eShops zu schreiben. Im eShop Admin kÃ¶nnen die
+        TexteintrÃ¤ge verwaltet werden.',
         'en' => 'Customers can write text messages on the page guestbook of the eShop. There is a section in the eShop 
         admin where those text messages can be managed.',
     ),
