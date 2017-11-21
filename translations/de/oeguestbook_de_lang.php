@@ -25,15 +25,15 @@
 $sLangName = 'Deutsch';
 
 $aLang = array(
-    'charset'                                                                 => 'ISO-8859-15',
-    'OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_LOGIN_TO_WRITE_ENTRY'      => 'Fehler: Um einen Gästebucheintrag zu schreiben, müssen Sie eingeloggt sein.',
-    'OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_MAXIMUM_NUMBER_EXCEEDED'   => 'Fehler: Flood Protection aktiv. Sie können heute keinen Eintrag mehr schreiben.',
+    'charset'                                                                 => 'UTF-8',
+    'OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_LOGIN_TO_WRITE_ENTRY'      => 'Fehler: Um einen GÃ¤stebucheintrag zu schreiben, mÃ¼ssen Sie eingeloggt sein.',
+    'OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_MAXIMUM_NUMBER_EXCEEDED'   => 'Fehler: Flood Protection aktiv. Sie kÃ¶nnen heute keinen Eintrag mehr schreiben.',
     'OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_REVIEW_CONTAINS_NO_TEXT'   => 'Fehler: Es gibt keinen Text in Ihrem Eintrag.',
     'OEGUESTBOOK_ERROR_MESSAGE_GUESTBOOK_ENTRY_ERR_UNDEFINED_SHOP'            => 'Fehler: Unbekannter Shop.',
-    'OEGUESTBOOK_GUESTBOOK'                                                   => 'Unser Gästebuch',
-    'OEGUESTBOOK_CLICK_HERE_TO_WRITE_ENTRY'                                   => 'Unser Gästebuch',
-    'OEGUESTBOOK_MESSAGE_TO_BE_LOGGED_WRITE_GUESTBOOK'                        => 'Sie müssen angemeldet sein, um einen Gästebucheintrag schreiben zu können.',
-    'PAGE_TITLE_OEGUESTBOOKGUESTBOOK'                                         => 'Unser Gästebuch',
+    'OEGUESTBOOK_GUESTBOOK'                                                   => 'Unser GÃ¤stebuch',
+    'OEGUESTBOOK_CLICK_HERE_TO_WRITE_ENTRY'                                   => 'Unser GÃ¤stebuch',
+    'OEGUESTBOOK_MESSAGE_TO_BE_LOGGED_WRITE_GUESTBOOK'                        => 'Sie mÃ¼ssen angemeldet sein, um einen GÃ¤stebucheintrag schreiben zu kÃ¶nnen.',
+    'PAGE_TITLE_OEGUESTBOOKGUESTBOOK'                                         => 'Unser GÃ¤stebuch',
     'OEGUESTBOOK_NO_ENTRY_AVAILABLE'                                          => 'Noch kein Eintrag vorhanden.',
     'OEGUESTBOOK_MESSAGE'                                                     => 'Nachricht',
     'OEGUESTBOOK_WRITES'                                                      => 'schreibt',

@@ -27,7 +27,7 @@
  * Loads available guestbook entries, performs some SQL queries.
  *
  */
-class oeGuestBookEntry extends oxBase
+class oeGuestBookEntry extends \OxidEsales\Eshop\Core\Model\BaseModel
 {
 
     /**
@@ -64,14 +64,14 @@ class oeGuestBookEntry extends oxBase
      */
     public function assign($dbRecord)
     {
-        $blRet = parent::assign($dbRecord);
+        $result = parent::assign($dbRecord);
 
         if (isset($this->oeguestbookentry__oxuserid) && $this->oeguestbookentry__oxuserid->value) {
-            $oDb = oxDb::getDb();
-            $this->oxuser__oxfname = new oxField($oDb->getOne("select oxfname from oxuser where oxid=" . $oDb->quote($this->oeguestbookentry__oxuserid->value)));
+            $db = \OxidEsales\Eshop\Core\DatabaseProvider::getDb();
+            $this->oxuser__oxfname = new \OxidEsales\Eshop\Core\Field($db->getOne("select oxfname from oxuser where oxid=" . $db->quote($this->oeguestbookentry__oxuserid->value)));
         }
 
-        return $blRet;
+        return $result;
     }
 
     /**
@@ -99,6 +99,7 @@ class oeGuestBookEntry extends oxBase
     public function getAllEntries($iStart, $iNrofCatArticles, $sSortBy)
     {
         $myConfig = $this->getConfig();
+        $db = \OxidEsales\Eshop\Core\DatabaseProvider::getDb();
 
         // loading entries
         $sSelect = 'select oeguestbookentry.*, oxuser.oxfname,
@@ -110,7 +111,7 @@ class oeGuestBookEntry extends oxBase
         if ($myConfig->getConfigParam('oeGuestBookModerate')) {
             $oUser = $this->getUser();
             $sSelect .= " and ( oeguestbookentry.oxactive = '1' ";
-            $sSelect .= $oUser ? " or oeguestbookentry.oxuserid = " . oxDb::getDb()->quote($oUser->getId()) : '';
+            $sSelect .= $oUser ? " or oeguestbookentry.oxuserid = " . $db->quote($oUser->getId()) : '';
             $sSelect .= " ) ";
         }
 
@@ -137,7 +138,7 @@ class oeGuestBookEntry extends oxBase
     public function getEntryCount()
     {
         $myConfig = $this->getConfig();
-        $oDb = oxDb::getDb();
+        $oDb = \OxidEsales\Eshop\Core\DatabaseProvider::getDb();
 
         // loading entries
         $sSelect = 'select count(*) from oeguestbookentry left join oxuser on oeguestbookentry.oxuserid = oxuser.oxid ';
@@ -171,7 +172,7 @@ class oeGuestBookEntry extends oxBase
     {
         $result = true;
         if ($sUserId && $sShopid) {
-            $oDb = oxDb::getDb();
+            $oDb = \OxidEsales\Eshop\Core\DatabaseProvider::getDb();
             $sToday = date('Y-m-d');
             $sSelect = "select count(*) from oeguestbookentry ";
             $sSelect .= "where oeguestbookentry.oxuserid = " . $oDb->quote($sUserId) . " and oeguestbookentry.oxshopid = " . $oDb->quote($sShopid) . " ";

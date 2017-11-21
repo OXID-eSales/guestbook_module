@@ -25,12 +25,12 @@
 $sLangName = 'Deutsch';
 
 $aLang = array(
-    'charset'                                           => 'ISO-8859-15',
+    'charset'                                           => 'UTF-8',
     'OEGUESTBOOK_ADMINGB_LIST_AUTHOR'                   => 'Autor',
     'OEGUESTBOOK_ADMINGB_LIST_ENTRY'                    => 'Eintrag',
     'OEGUESTBOOK_ADMINGB_LIST_MENUITEM'                 => 'Kundeninformation',
-    'OEGUESTBOOK_ADMINGB_LIST_MENUSUBITEM'              => 'Gästebuch',
-    'OEGUESTBOOK_ADMINGB_TITLE'                         => '[OXID Gästebuch]',
-    'mxguestbook'                                       => 'Gästebuch',
+    'OEGUESTBOOK_ADMINGB_LIST_MENUSUBITEM'              => 'GÃ¤stebuch',
+    'OEGUESTBOOK_ADMINGB_TITLE'                         => '[OXID GÃ¤stebuch]',
+    'mxguestbook'                                       => 'GÃ¤stebuch',
     'tbcladminguestbook_main'                           => 'Stamm',
 );

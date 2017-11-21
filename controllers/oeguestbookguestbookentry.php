@@ -26,7 +26,7 @@
  * Guest book entry manager class.
  * Manages guestbook entries, denies them, etc.
  */
-class oeGuestBookGuestBookEntry extends oxUBase
+class oeGuestBookGuestBookEntry extends \OxidEsales\Eshop\Application\Controller\FrontendController
 {
 
     /**
@@ -56,7 +56,8 @@ class oeGuestBookGuestBookEntry extends oxUBase
             return;
         }
 
-        $sReviewText = trim(( string ) oxRegistry::getConfig()->getRequestParameter('rvw_txt', true));
+        $request = \OxidEsales\Eshop\Core\Registry::get(\OxidEsales\Eshop\Core\Request::class);
+        $sReviewText = trim(( string ) $request->getRequestParameter('rvw_txt'));
         $sShopId = $this->getConfig()->getShopId();
         $sUserId = oxRegistry::getSession()->getVariable('usr');
 

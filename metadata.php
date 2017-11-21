@@ -33,17 +33,17 @@ $sMetadataVersion = '1.1';
 $aModule = array(
     'id'          => 'oeguestbook',
     'title'       => array(
-        'de' => 'Gästebuch',
+        'de' => 'GÃ¤stebuch',
         'en' => 'Guestbook',
     ),
     'description' => array(
-        'de' => 'Erlaubt Kunden, Texteinträge auf der Seite Gästebuch des eShops zu schreiben. Im eShop Admin können die
-        Texteinträge verwaltet werden.',
+        'de' => 'Erlaubt Kunden, TexteintrÃ¤ge auf der Seite GÃ¤stebuch des eShops zu schreiben. Im eShop Admin kÃ¶nnen die
+        TexteintrÃ¤ge verwaltet werden.',
         'en' => 'Customers can write text messages on the page guestbook of the eShop. There is a section in the eShop 
         admin where those text messages can be managed.',
     ),
     'thumbnail'   => '',
-    'version'     => '1.0.0',
+    'version'     => '2.0.0',
     'author'      => 'OXID eSales AG',
     'url'         => 'http://www.oxid-esales.com',
     'email'       => 'info@oxid-esales.com',
@@ -66,8 +66,8 @@ $aModule = array(
     ),
     'blocks'      => array(
         array(
-            'template' => 'widget/footer/services.tpl', 
-            'block'=>'footer_services_items', 
+            'template' => 'widget/footer/services.tpl',
+            'block'=>'footer_services_items',
             'file'=>'views/blocks/footer_services_items.tpl'
         ),
     ),

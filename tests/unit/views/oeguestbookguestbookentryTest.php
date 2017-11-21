@@ -22,7 +22,7 @@
  * @copyright (C) OXID eSales AG 2003-2016
  */
 
-class oeGuestBookGuestBookEntryTest extends OxidTestCase
+class oeGuestBookGuestBookEntryTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
 
     /**
@@ -34,7 +34,9 @@ class oeGuestBookGuestBookEntryTest extends OxidTestCase
     {
         $this->getSession()->setVariable("gbSessionFormId", null);
         $this->getSession()->setVariable("Errors", null);
-        oxDb::getDB()->execute('delete from oeguestbookentry');
+
+        $db = \OxidEsales\Eshop\Core\DatabaseProvider::getDB();
+        $db->execute('delete from oeguestbookentry');
 
         parent::tearDown();
     }
@@ -46,7 +48,9 @@ class oeGuestBookGuestBookEntryTest extends OxidTestCase
      */
     public function testGetFormId()
     {
-        oxTestModules::addFunction("oxUtilsObject", "generateUId", "{return 'xxx';}");
+        $utilsObject = $this->getMock("oxUtilsObject", ["generateUId"]);
+        $utilsObject->method("generateUId")->willReturn("xxx");
+        \OxidEsales\Eshop\Core\Registry::set('oxUtilsObject', $utilsObject);
 
         $oView = oxNew('oeGuestBookGuestBookEntry');
         $this->assertEquals('xxx', $oView->getFormId());
@@ -184,7 +188,8 @@ class oeGuestBookGuestBookEntryTest extends OxidTestCase
         $oView = oxNew('oeGuestBookGuestBookEntry');
         $this->assertEquals('guestbook', $oView->saveEntry());
 
-        $this->assertEquals(0, oxDb::getDb()->getOne('select count(*) from oeguestbookentry'));
+        $db = \OxidEsales\Eshop\Core\DatabaseProvider::getDb();
+        $this->assertEquals(0, $db->getOne('select count(*) from oeguestbookentry'));
     }
 
     /**
@@ -210,6 +215,7 @@ class oeGuestBookGuestBookEntryTest extends OxidTestCase
         $oView->expects($this->any())->method('canAcceptFormData')->will($this->returnValue(true));
         $this->assertEquals('guestbook', $oView->saveEntry());
 
-        $this->assertEquals(1, oxDb::getDb()->getOne('select count(*) from oeguestbookentry'));
+        $db = \OxidEsales\Eshop\Core\DatabaseProvider::getDb();
+        $this->assertEquals(1, $db->getOne('select count(*) from oeguestbookentry'));
     }
 }

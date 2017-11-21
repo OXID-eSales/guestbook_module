@@ -27,7 +27,7 @@
  * Returns template, that arranges guestbook records list.
  * Admin Menu: User information -> Guestbook.
  */
-class oeGuestBookAdminGuestBookList extends oxAdminList
+class oeGuestBookAdminGuestBookList extends \OxidEsales\Eshop\Application\Controller\Admin\AdminListController
 {
 
     /**
@@ -68,22 +68,21 @@ class oeGuestBookAdminGuestBookList extends oxAdminList
     {
         parent::render();
 
-        $oList = $this->getItemList();
-        if ($oList && $oList->count()) {
-
-            $oDb = oxDb::getDb();
-            foreach ($oList as $oEntry) {
+        $itemList = $this->getItemList();
+        if ($itemList && $itemList->count()) {
+            $oDb = \OxidEsales\Eshop\Core\DatabaseProvider::getDb();
+            foreach ($itemList as $entry) {
                 // preloading user info ..
-                $sUserIdField = 'oeguestbookentry__oxuserid';
-                $sUserLastNameField = 'oxuser__oxlname';
-                if (isset($oEntry->$sUserIdField) && $oEntry->$sUserIdField->value) {
-                    $sSql = "select oxlname from oxuser where oxid=" . $oDb->quote($oEntry->$sUserIdField->value);
-                    $oEntry->$sUserLastNameField = new oxField($oDb->getOne($sSql, false, false));
+                $userIdField = 'oeguestbookentry__oxuserid';
+                $userLastNameField = 'oxuser__oxlname';
+                if (isset($entry->$userIdField) && $entry->$userIdField->value) {
+                    $sSql = "select oxlname from oxuser where oxid=" . $oDb->quote($entry->$userIdField->value);
+                    $entry->$userLastNameField = new \OxidEsales\Eshop\Core\Field($oDb->getOne($sSql, false));
                 }
             }
         }
 
-        $this->_aViewData["mylist"] = $oList;
+        $this->_aViewData["mylist"] = $itemList;
 
         return $this->_sThisTemplate;
     }

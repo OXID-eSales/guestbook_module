@@ -22,10 +22,12 @@
  * @copyright (C) OXID eSales AG 2003-2016
  */
 
-class oeGuestBookGuestBookTest extends OxidTestCase
+class oeGuestBookGuestBookTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
 
     private $_oObj = null;
+
+    private $adminId = null;
 
     /**
      * Initialize the fixture.
@@ -36,9 +38,12 @@ class oeGuestBookGuestBookTest extends OxidTestCase
     {
         parent::setUp();
 
+        $db = \OxidEsales\Eshop\Core\DatabaseProvider::getDb();
+        $this->adminId = $db->getOne("select OXID from `oxuser` where `OXUSERNAME` = 'admin';");
+
         $oConfig = $this->getConfig();
         $this->_oObj = oxNew('oeGuestBookEntry');
-        $this->_oObj->oeguestbookentry__oxuserid = new oxField('oxdefaultadmin', oxField::T_RAW);
+        $this->_oObj->oeguestbookentry__oxuserid = new oxField($this->adminId, oxField::T_RAW);
         $this->_oObj->oeguestbookentry__oxcontent = new oxField("test content\ntest content", oxField::T_RAW);
         $this->_oObj->oeguestbookentry__oxcreate = new oxField(null, oxField::T_RAW);
         $this->_oObj->oeguestbookentry__oxshopid = new oxField($oConfig->getShopId(), oxField::T_RAW);
@@ -83,7 +88,7 @@ class oeGuestBookGuestBookTest extends OxidTestCase
     {
         $oObj = oxNew('oeGuestBookGuestBook');
         $this->getConfig()->setConfigParam('oeGuestBookMaxGuestBookEntriesPerDay', 10);
-        $this->getSession()->setVariable('usr', 'oxdefaultadmin');
+        $this->getSession()->setVariable('usr', $this->adminId);
         $this->assertFalse($oObj->floodProtection());
     }
 
@@ -96,7 +101,7 @@ class oeGuestBookGuestBookTest extends OxidTestCase
     {
         $oObj = oxNew('oeGuestBookGuestBook');
         $this->getConfig()->setConfigParam('oeGuestBookMaxGuestBookEntriesPerDay', 1);
-        $this->getSession()->setVariable('usr', 'oxdefaultadmin');
+        $this->getSession()->setVariable('usr', $this->adminId);
         $this->assertTrue($oObj->floodProtection());
     }
 

@@ -22,15 +22,12 @@
  * @copyright (C) OXID eSales AG 2003-2016
  */
 
-
 /**
  * Shop guestbook page.
  * Manages, collects, denies user comments.
  */
-class oeGuestBookGuestBook extends oxUBase
+class oeGuestBookGuestBook extends \OxidEsales\Eshop\Application\Controller\FrontendController
 {
-
-
     /**
      * Number of possible pages.
      *
@@ -124,7 +121,7 @@ class oeGuestBookGuestBook extends oxUBase
      */
     public function render()
     {
-        $this->_sThisTemplate = $this->render_parent();
+        $this->_sThisTemplate = $this->renderParent();
 
         // #774C no user mail and password check in guesbook
         if ($this->_blShowLogin) {
@@ -144,7 +141,7 @@ class oeGuestBookGuestBook extends oxUBase
      *
      * @return mixed
      */
-    protected function render_parent()
+    protected function renderParent()
     {
         return parent::render();
     }
@@ -300,7 +297,8 @@ class oeGuestBookGuestBook extends oxUBase
             return;
         }
 
-        $reviewText = trim(( string ) oxRegistry::getConfig()->getRequestParameter('rvw_txt', true));
+        $request = \OxidEsales\Eshop\Core\Registry::get(\OxidEsales\Eshop\Core\Request::class);
+        $reviewText = trim(( string ) $request->getRequestParameter('rvw_txt'));
         $shopId = $this->getConfig()->getShopId();
         $userId = oxRegistry::getSession()->getVariable('usr');
 

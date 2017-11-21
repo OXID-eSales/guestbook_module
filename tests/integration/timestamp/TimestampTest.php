@@ -22,7 +22,7 @@
  * @copyright (C) OXID eSales AG 2003-2016
  */
 
-class TimestampTest extends OxidTestCase
+class TimestampTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
     /**
      * Tear down the fixture.
@@ -32,7 +32,7 @@ class TimestampTest extends OxidTestCase
         $this->cleanUpTable('oeguestbookentry');
 
         // OXID is not string in oxshops table !!!
-        oxDb::getDb()->execute("DELETE FROM `oxshops` WHERE `oxid` = '0'");
+        \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->execute("DELETE FROM `oxshops` WHERE `oxid` = '0'");
 
         parent::tearDown();
     }
@@ -46,10 +46,10 @@ class TimestampTest extends OxidTestCase
         $sInsertSql = "INSERT INTO `oeguestbookentry` SET `oxid` = '_testId'";
         $sSelectSql = "SELECT `oxtimestamp` FROM `oeguestbookentry` WHERE `oxid` = '_testId'";
 
-        $oDb = oxDb::getDb();
+        $db = \OxidEsales\Eshop\Core\DatabaseProvider::getDb();
 
-        $oDb->Execute($sInsertSql);
-        $sTimeStamp = $oDb->getOne($sSelectSql);
+        $db->execute($sInsertSql);
+        $sTimeStamp = $db->getOne($sSelectSql);
 
         $this->assertTrue($sTimeStamp != '0000-00-00 00:00:00');
     }
@@ -64,12 +64,12 @@ class TimestampTest extends OxidTestCase
         $sUpdateSql = "UPDATE `oeguestbookentry` SET `oxcontent` = '_testmodified' WHERE `oxid` = '_testId'";
         $sSelectSql = "SELECT `oxtimestamp` FROM `oeguestbookentry` WHERE `oxid` = '_testId'";
 
-        $oDb = oxDb::getDb();
+        $db = \OxidEsales\Eshop\Core\DatabaseProvider::getDb();
 
-        $oDb->Execute($sInsertSql);
-        $oDb->Execute($sUpdateSql);
+        $db->execute($sInsertSql);
+        $db->execute($sUpdateSql);
 
-        $sTimeStamp = $oDb->getOne($sSelectSql);
+        $sTimeStamp = $db->getOne($sSelectSql);
 
         $this->assertTrue($sTimeStamp != '0000-00-00 00:00:00');
     }
@@ -82,13 +82,13 @@ class TimestampTest extends OxidTestCase
     {
         $oObject = oxNew('oeGuestBookEntry');
         $oObject->setId('_testId');
-        $oObject->oeguestbookentry__oxcontent = new oxField('test');
+        $oObject->oeguestbookentry__oxcontent = new \OxidEsales\Eshop\Core\Field('test');
         $oObject->save();
 
         $oObject = oxNew('oeGuestBookEntry');
         $oObject->load('_testId');
 
-        $attName = oeguestbookentry . '__oxtimestamp';
+        $attName = 'oeguestbookentry__oxtimestamp';
 
         $this->assertTrue($oObject->$attName->value != '0000-00-00 00:00:00');
     }
@@ -99,18 +99,18 @@ class TimestampTest extends OxidTestCase
      */
     public function testOnUpdate()
     {
-        $attName = oeguestbookentry . '__oxtimestamp';
-        $attNameMod = oeguestbookentry__oxcontent;
+        $attName = 'oeguestbookentry__oxtimestamp';
+        $attNameMod = 'oeguestbookentry__oxcontent';
 
         $oObject = oxNew('oeGuestBookEntry');
         $oObject->setId('_testId');
-        $oObject->$attName = new oxField('0000-00-00 00:00:00');
-        $oObject->$attNameMod = new oxField('test');
+        $oObject->$attName = new \OxidEsales\Eshop\Core\Field('0000-00-00 00:00:00');
+        $oObject->$attNameMod = new \OxidEsales\Eshop\Core\Field('test');
         $oObject->save();
 
         $oObject = oxNew('oeGuestBookEntry');
         $oObject->load('_testId');
-        $oObject->$attNameMod = new oxField('testmodyfied');
+        $oObject->$attNameMod = new \OxidEsales\Eshop\Core\Field('testmodyfied');
         $oObject->save();
 
         $oObject = oxNew('oeGuestBookEntry');

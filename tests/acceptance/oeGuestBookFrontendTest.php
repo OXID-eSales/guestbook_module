@@ -39,6 +39,13 @@ class oeGuestBookFrontendTest extends \OxidEsales\TestingLibrary\AcceptanceTestC
         $this->importSql(__DIR__ . '/testSql/removeOeGuestBookEntries.sql');
     }
 
+    protected function setUp()
+    {
+        parent::setUp();
+
+        \OxidEsales\Eshop\Core\Registry::set(\OxidEsales\Eshop\Core\Language::class, null);
+    }
+
     /**
      * Guestbook spam control
      *
@@ -96,9 +103,10 @@ class oeGuestBookFrontendTest extends \OxidEsales\TestingLibrary\AcceptanceTestC
     {
         $this->click("writeNewReview");
         $this->waitForItemAppear("rvw_txt");
-        $this->type("rvw_txt", "guestbook entry No. $iGuestBookEntryNumberToAssert");
+        $text = "guestbook entry sėkme Русские für No. $iGuestBookEntryNumberToAssert";
+        $this->type("rvw_txt", $text);
         $this->clickAndWait("//button[text()='%SUBMIT%']");
-        $this->assertTextPresent("guestbook entry No. $iGuestBookEntryNumberToAssert");
+        $this->assertTextPresent($text);
         if ($blReviewLinkVisible) {
             $this->assertElementPresent("writeNewReview");
         } else {
