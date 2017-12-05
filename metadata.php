@@ -43,7 +43,7 @@ $aModule = array(
         admin where those text messages can be managed.',
     ),
     'thumbnail'   => '',
-    'version'     => '2.0.0',
+    'version'     => '2.0.1',
     'author'      => 'OXID eSales AG',
     'url'         => 'http://www.oxid-esales.com',
     'email'       => 'info@oxid-esales.com',

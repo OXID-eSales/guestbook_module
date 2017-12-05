@@ -1,5 +1,5 @@
 {
-  "name": "oxid-esales/guestbook-module",
+  "name": "oxid-projects/guestbook-module",
   "description": "This is Guestbook module for OXID eShop.",
   "type": "oxideshop-module",
   "keywords": ["oxid", "modules", "eShop", "guestbook"],

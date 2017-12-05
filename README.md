@@ -17,8 +17,7 @@ In order to install the module via composer, run the following commands in comma
 (where the shop's composer.json file resides).
 
 ```
-composer config repositories.oxid-esales/guestbook-module vcs https://github.com/OXIDprojects/guestbook-module
-composer require oxid-esales/guestbook-module:dev-master
+composer require oxid-projects/guestbook-module
 ```
 
 ### Module installation via repository cloning
